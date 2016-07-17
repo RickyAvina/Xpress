@@ -47,11 +47,17 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="FLl-y2-rEF" kind="show" id="9lc-cj-xP9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CtZ-KG-82l">
                                 <rect key="frame" x="277" y="360" width="94" height="30"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="15"/>
                                 <state key="normal" title="Register Here"/>
+                                <connections>
+                                    <segue destination="YFb-Bb-nst" kind="show" id="Mcx-1j-Awx"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tX-fv-iz0">
                                 <rect key="frame" x="90" y="364" width="179" height="21"/>
@@ -78,7 +84,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="516"/>
+            <point key="canvasLocation" x="-419" y="586"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="LOk-mJ-rgj">
+            <objects>
+                <viewController id="YFb-Bb-nst" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="we0-na-nKg"/>
+                        <viewControllerLayoutGuide type="bottom" id="ayg-z4-wkf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0II-sn-MiC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LGW-kC-dZU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-419" y="1346"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="oDN-1T-OnW">
+            <objects>
+                <viewController id="FLl-y2-rEF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nKa-6K-dtM"/>
+                        <viewControllerLayoutGuide type="bottom" id="m8h-qS-B27"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yAz-JT-sc1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ty7-Rd-vN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="260" y="586"/>
         </scene>
     </scenes>
 </document>
