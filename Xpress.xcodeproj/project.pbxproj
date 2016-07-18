@@ -15,6 +15,7 @@
 		943D068E1D3B25A800730F39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 943D068C1D3B25A800730F39 /* LaunchScreen.storyboard */; };
 		943D06991D3B25A900730F39 /* XpressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D06981D3B25A900730F39 /* XpressTests.swift */; };
 		943D06A41D3B25A900730F39 /* XpressUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D06A31D3B25A900730F39 /* XpressUITests.swift */; };
+		944004001D3D7D050000098F /* ViewControllerRegisterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944003FF1D3D7D050000098F /* ViewControllerRegisterPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		943D069F1D3B25A900730F39 /* XpressUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XpressUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		943D06A31D3B25A900730F39 /* XpressUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XpressUITests.swift; sourceTree = "<group>"; };
 		943D06A51D3B25A900730F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		944003FF1D3D7D050000098F /* ViewControllerRegisterPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerRegisterPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				943D06801D3B25A800730F39 /* AppDelegate.swift */,
 				943D06821D3B25A800730F39 /* ViewController.swift */,
 				943D06841D3B25A800730F39 /* Main.storyboard */,
+				944003FF1D3D7D050000098F /* ViewControllerRegisterPage.swift */,
 				943D068A1D3B25A800730F39 /* Assets.xcassets */,
 				943D068C1D3B25A800730F39 /* LaunchScreen.storyboard */,
 				943D068F1D3B25A800730F39 /* Info.plist */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				944004001D3D7D050000098F /* ViewControllerRegisterPage.swift in Sources */,
 				943D06831D3B25A800730F39 /* ViewController.swift in Sources */,
 				943D06891D3B25A800730F39 /* Xpress.xcdatamodeld in Sources */,
 				943D06811D3B25A800730F39 /* AppDelegate.swift in Sources */,
@@ -491,6 +495,7 @@
 				943D06AA1D3B25A900730F39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		943D06AB1D3B25A900730F39 /* Build configuration list for PBXNativeTarget "XpressTests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +504,7 @@
 				943D06AD1D3B25A900730F39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		943D06AE1D3B25A900730F39 /* Build configuration list for PBXNativeTarget "XpressUITests" */ = {
 			isa = XCConfigurationList;
@@ -507,6 +513,7 @@
 				943D06B01D3B25A900730F39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
