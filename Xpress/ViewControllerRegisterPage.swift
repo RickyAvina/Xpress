@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerRegisterPage: UIViewController {
+class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var registerLabel: UILabel!
     
@@ -26,10 +26,28 @@ class ViewControllerRegisterPage: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.middleInitialPicker.delegate = self
+        self.middleInitialPicker.dataSource = self
         middleInitialPickerData = ["A.", "B.", "C.", "D.", "E.", "F.", "G.", "H.", "I.", "J.", "K.", "L.", "M.", "N.", "O.", "P.", "Q.", "R.", "S.", "T.", "U.", "V.", "W.", "X.", "Y.", "Z."]
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    // The number of colums of data
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    // the number of rows of data
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return middleInitialPickerData.count
+    }
+    
+    // The data to return for the row and component (column) that's being passed in
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return middleInitialPickerData[row]
+    }
+
 }
