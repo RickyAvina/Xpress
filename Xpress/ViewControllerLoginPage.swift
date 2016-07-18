@@ -13,6 +13,9 @@ class ViewControllerLoginPage: UIViewController {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     
+    @IBAction func pushNewViewController(sender: AnyObject) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

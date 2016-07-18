@@ -298,6 +298,10 @@
                                     <constraint firstAttribute="width" constant="148" id="hbV-rS-vEB"/>
                                 </constraints>
                                 <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="pushNewViewController:" destination="FLl-y2-rEF" eventType="touchUpInside" id="s4P-7W-QHr"/>
+                                    <segue destination="Ds9-JP-rV7" kind="show" id="0HH-v6-35q"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -321,11 +325,30 @@
                     <connections>
                         <outlet property="emailTextField" destination="VyZ-We-trK" id="TEv-Pp-sL7"/>
                         <outlet property="passwordTextField" destination="2dp-ZI-9Ma" id="lL3-EA-6Fh"/>
+                        <outlet property="pushNewViewController" destination="72U-KL-Ipu" id="0S9-E2-wcc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ty7-Rd-vN6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="260" y="586"/>
+        </scene>
+        <!--View Controller Main Page-->
+        <scene sceneID="d4h-cB-ez6">
+            <objects>
+                <viewController storyboardIdentifier="mainPage" id="Ds9-JP-rV7" customClass="ViewControllerMainPage" customModule="Xpress" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xIL-na-NHz"/>
+                        <viewControllerLayoutGuide type="bottom" id="CjP-JX-WJ2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="spP-9i-4Bj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1LE-1W-5jL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="983" y="586"/>
         </scene>
     </scenes>
 </document>
