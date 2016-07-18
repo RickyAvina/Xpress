@@ -300,7 +300,7 @@
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="pushNewViewController:" destination="FLl-y2-rEF" eventType="touchUpInside" id="s4P-7W-QHr"/>
-                                    <segue destination="Ds9-JP-rV7" kind="show" id="0HH-v6-35q"/>
+                                    <segue destination="Ds9-JP-rV7" kind="show" identifier="SwitchToMain" id="0HH-v6-35q"/>
                                 </connections>
                             </button>
                         </subviews>
