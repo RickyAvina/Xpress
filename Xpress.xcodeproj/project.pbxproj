@@ -16,8 +16,8 @@
 		943D06991D3B25A900730F39 /* XpressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D06981D3B25A900730F39 /* XpressTests.swift */; };
 		943D06A41D3B25A900730F39 /* XpressUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943D06A31D3B25A900730F39 /* XpressUITests.swift */; };
 		944004001D3D7D050000098F /* ViewControllerRegisterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944003FF1D3D7D050000098F /* ViewControllerRegisterPage.swift */; };
-		944004021D3D898F0000098F /* ViewControllerLoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944004011D3D898F0000098F /* ViewControllerLoginPage.swift */; };
 		944004041D3D90D70000098F /* ViewControllerMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944004031D3D90D70000098F /* ViewControllerMainPage.swift */; };
+		944004061D3EB7690000098F /* ViewControllerLoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944004051D3EB7690000098F /* ViewControllerLoginPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +53,8 @@
 		943D06A31D3B25A900730F39 /* XpressUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XpressUITests.swift; sourceTree = "<group>"; };
 		943D06A51D3B25A900730F39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		944003FF1D3D7D050000098F /* ViewControllerRegisterPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerRegisterPage.swift; sourceTree = "<group>"; };
-		944004011D3D898F0000098F /* ViewControllerLoginPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLoginPage.swift; sourceTree = "<group>"; };
 		944004031D3D90D70000098F /* ViewControllerMainPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerMainPage.swift; sourceTree = "<group>"; };
+		944004051D3EB7690000098F /* ViewControllerLoginPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLoginPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +108,8 @@
 				943D06801D3B25A800730F39 /* AppDelegate.swift */,
 				943D06821D3B25A800730F39 /* ViewController.swift */,
 				943D06841D3B25A800730F39 /* Main.storyboard */,
-				944004011D3D898F0000098F /* ViewControllerLoginPage.swift */,
 				944004031D3D90D70000098F /* ViewControllerMainPage.swift */,
+				944004051D3EB7690000098F /* ViewControllerLoginPage.swift */,
 				944003FF1D3D7D050000098F /* ViewControllerRegisterPage.swift */,
 				943D068A1D3B25A800730F39 /* Assets.xcassets */,
 				943D068C1D3B25A800730F39 /* LaunchScreen.storyboard */,
@@ -271,12 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				944004021D3D898F0000098F /* ViewControllerLoginPage.swift in Sources */,
 				944004001D3D7D050000098F /* ViewControllerRegisterPage.swift in Sources */,
 				943D06831D3B25A800730F39 /* ViewController.swift in Sources */,
 				943D06891D3B25A800730F39 /* Xpress.xcdatamodeld in Sources */,
 				944004041D3D90D70000098F /* ViewControllerMainPage.swift in Sources */,
 				943D06811D3B25A800730F39 /* AppDelegate.swift in Sources */,
+				944004061D3EB7690000098F /* ViewControllerLoginPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
