@@ -28,7 +28,7 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
         
         self.middleInitialPicker.delegate = self
         self.middleInitialPicker.dataSource = self
-        middleInitialPickerData = ["A.", "B.", "C.", "D.", "E.", "F.", "G.", "H.", "I.", "J.", "K.", "L.", "M.", "N.", "O.", "P.", "Q.", "R.", "S.", "T.", "U.", "V.", "W.", "X.", "Y.", "Z."]
+        middleInitialPickerData = ["", "A.", "B.", "C.", "D.", "E.", "F.", "G.", "H.", "I.", "J.", "K.", "L.", "M.", "N.", "O.", "P.", "Q.", "R.", "S.", "T.", "U.", "V.", "W.", "X.", "Y.", "Z."]
     }
     
     override func didReceiveMemoryWarning() {
