@@ -19,7 +19,7 @@ class ViewControllerMainPage: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (CheckFirstTime.isFirstTime){
+        if (GlobalData.isFirstTime){
             loginButton.hidden = true
             accountLabel.hidden = true
             registerButton.hidden = true

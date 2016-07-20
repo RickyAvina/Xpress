@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        CheckFirstTime.isFirstTime = CheckFirstTime.firstTimeLaunching()
-        print("First time?: \(CheckFirstTime.isFirstTime)")
+        GlobalData.isFirstTime = GlobalData.firstTimeLaunching()
+        print("First time?: \(GlobalData.isFirstTime)")
         return true
     }
 

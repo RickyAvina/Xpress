@@ -18,8 +18,11 @@
 		944004001D3D7D050000098F /* ViewControllerRegisterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944003FF1D3D7D050000098F /* ViewControllerRegisterPage.swift */; };
 		944004041D3D90D70000098F /* ViewControllerMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944004031D3D90D70000098F /* ViewControllerMainPage.swift */; };
 		944004061D3EB7690000098F /* ViewControllerLoginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944004051D3EB7690000098F /* ViewControllerLoginPage.swift */; };
-		9440040A1D3F3B540000098F /* CheckFirstTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944004091D3F3B540000098F /* CheckFirstTime.swift */; };
+		9440040A1D3F3B540000098F /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944004091D3F3B540000098F /* GlobalData.swift */; };
 		9440040C1D3F45B50000098F /* ViewControllerCameraPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9440040B1D3F45B50000098F /* ViewControllerCameraPage.swift */; };
+		944004101D400FDC0000098F /* ViewControllerListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9440040F1D400FDC0000098F /* ViewControllerListPage.swift */; };
+		944004141D4012EF0000098F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944004131D4012EF0000098F /* Item.swift */; };
+		944004161D40134D0000098F /* Item.xib in Resources */ = {isa = PBXBuildFile; fileRef = 944004151D40134D0000098F /* Item.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +60,11 @@
 		944003FF1D3D7D050000098F /* ViewControllerRegisterPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerRegisterPage.swift; sourceTree = "<group>"; };
 		944004031D3D90D70000098F /* ViewControllerMainPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerMainPage.swift; sourceTree = "<group>"; };
 		944004051D3EB7690000098F /* ViewControllerLoginPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerLoginPage.swift; sourceTree = "<group>"; };
-		944004091D3F3B540000098F /* CheckFirstTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckFirstTime.swift; sourceTree = "<group>"; };
+		944004091D3F3B540000098F /* GlobalData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		9440040B1D3F45B50000098F /* ViewControllerCameraPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerCameraPage.swift; sourceTree = "<group>"; };
+		9440040F1D400FDC0000098F /* ViewControllerListPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerListPage.swift; sourceTree = "<group>"; };
+		944004131D4012EF0000098F /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		944004151D40134D0000098F /* Item.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Item.xib; path = ../Item.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +118,12 @@
 				943D06801D3B25A800730F39 /* AppDelegate.swift */,
 				943D06821D3B25A800730F39 /* ViewController.swift */,
 				943D06841D3B25A800730F39 /* Main.storyboard */,
+				944004151D40134D0000098F /* Item.xib */,
+				944004131D4012EF0000098F /* Item.swift */,
 				9440040B1D3F45B50000098F /* ViewControllerCameraPage.swift */,
 				944004031D3D90D70000098F /* ViewControllerMainPage.swift */,
-				944004091D3F3B540000098F /* CheckFirstTime.swift */,
+				9440040F1D400FDC0000098F /* ViewControllerListPage.swift */,
+				944004091D3F3B540000098F /* GlobalData.swift */,
 				944004051D3EB7690000098F /* ViewControllerLoginPage.swift */,
 				944003FF1D3D7D050000098F /* ViewControllerRegisterPage.swift */,
 				943D068A1D3B25A800730F39 /* Assets.xcassets */,
@@ -250,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				944004161D40134D0000098F /* Item.xib in Resources */,
 				943D068E1D3B25A800730F39 /* LaunchScreen.storyboard in Resources */,
 				943D068B1D3B25A800730F39 /* Assets.xcassets in Resources */,
 				943D06861D3B25A800730F39 /* Main.storyboard in Resources */,
@@ -277,14 +287,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				944004141D4012EF0000098F /* Item.swift in Sources */,
 				944004001D3D7D050000098F /* ViewControllerRegisterPage.swift in Sources */,
 				943D06831D3B25A800730F39 /* ViewController.swift in Sources */,
 				943D06891D3B25A800730F39 /* Xpress.xcdatamodeld in Sources */,
 				944004041D3D90D70000098F /* ViewControllerMainPage.swift in Sources */,
+				944004101D400FDC0000098F /* ViewControllerListPage.swift in Sources */,
 				943D06811D3B25A800730F39 /* AppDelegate.swift in Sources */,
 				944004061D3EB7690000098F /* ViewControllerLoginPage.swift in Sources */,
 				9440040C1D3F45B50000098F /* ViewControllerCameraPage.swift in Sources */,
-				9440040A1D3F3B540000098F /* CheckFirstTime.swift in Sources */,
+				9440040A1D3F3B540000098F /* GlobalData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

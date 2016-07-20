@@ -8,13 +8,17 @@
 
 import Foundation
 
-class CheckFirstTime {
+class GlobalData {
     
-    static let sharedInstance = CheckFirstTime()
+    static let sharedInstance = GlobalData()
     
+    static var items = [[String:String]]()   // array of dictionaries
+    static var itemInfo = [String:String]()  // contains all info of each item
+        
     static var isFirstTime = Bool()
     
     static func firstTimeLaunching()->Bool{
+        
         let defaults = NSUserDefaults.standardUserDefaults()
         
         if let isAppAlreadyLaunchedOnce = defaults.stringForKey("isAppAlreadyLaunchedOnce"){

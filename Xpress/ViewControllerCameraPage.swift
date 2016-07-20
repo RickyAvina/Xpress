@@ -93,6 +93,14 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
     }
     
     func foundCode(code: String) {
+        var tempData = [String:String]() // creates a temporary array for the item info
+        tempData["name"] = "Water Bottle"
+        tempData["price"] = "$4.85"
+        tempData["upcCode"] = code
+        tempData["desc"] = "It's just water though"
+        
+        
+        GlobalData.items.append(tempData)
         print(code)
     }
     
