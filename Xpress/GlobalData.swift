@@ -13,7 +13,7 @@ class GlobalData {
     static let sharedInstance = GlobalData()
     
     static var items = [[String:String]]()   // array of dictionaries
-    static var itemInfo = [String:String]()  // contains all info of each item
+    static var itemInfo = [String:Any]()  // contains all info of each item
         
     static var isFirstTime = Bool()
     

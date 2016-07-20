@@ -25,7 +25,13 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        var count : Int = 0
+        
+        if (GlobalData.items.count != 0 && tableView.isEqual(listTableView)){
+            count = GlobalData.items.count
+        }
+        
+        return count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

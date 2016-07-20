@@ -99,7 +99,7 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
         tempData["upcCode"] = code
         tempData["desc"] = "It's just water though"
         
-        
+        print(tempData)
         GlobalData.items.append(tempData)
         print(code)
     }
@@ -110,5 +110,18 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
     
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return .Portrait
+    }
+    
+    func screenshot() {
+        //Create the UIImage
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        //images.append(image);
+        
+        //Save it to the camera roll
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
 }
