@@ -117,9 +117,6 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(urlRequest) {
             (data, response, error) -> Void in
-            
-            let httpResponse = response as! NSHTTPURLResponse
-            let statusCode = httpResponse.statusCode
                 
                 do{
                     
