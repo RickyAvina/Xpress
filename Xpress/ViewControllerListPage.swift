@@ -55,6 +55,10 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
             if (GlobalData.items[indexPath.row]["desc"] != nil){
                 cell?.upcCode.text = GlobalData.items[indexPath.row]["desc"] as? String
             }
+            
+            if (GlobalData.items[indexPath.row]["itemImage"] != nil){
+                cell.imageView?.image = GlobalData.items[indexPath.row]["itemImage"] as? UIImage
+            }
         }
             return cell!
     }

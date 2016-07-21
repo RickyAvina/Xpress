@@ -16,6 +16,8 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
+    var images: [UIImage] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -99,32 +101,58 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
     
     func foundCode(longCode: String) {
         
-        let code = longCode.characters.dropFirst()
+        //Create the UIImage
+       /* UIGraphicsBeginImageContext(view.frame.size)
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()*/
+    
+        let code = longCode.substringFromIndex(longCode.startIndex.successor())
         
-        let requestURL : NSURL = NSURL(string: "https://api.outpan.com/v2/products/038000219740?apikey=f603e960da29067c4573079073426751")!
+        var realName = String()
         
-        let urlRequest : NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
+        let requestURL : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\(code)?apikey=f603e960da29067c4573079073426751")!
+        
+        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
         let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(urlRequest){
+        let task = session.dataTaskWithRequest(urlRequest) {
             (data, response, error) -> Void in
             
             let httpResponse = response as! NSHTTPURLResponse
             let statusCode = httpResponse.statusCode
             
-            if (statusCode == 200){
-                print("Everything is fine, file downloaded successfully")
-            } else {
-                print("Sumthin not working dawg")
+            if (statusCode == 200) { // everything works
+                print("Everyone is fine, file downloaded successfully.")
+                
+                do{
+                    
+                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments)
+                    
+                    if let name = json["name"] as? String {
+                        if name.characters.count > 0 {
+                        realName = name
+                        } else {
+                            realName = "No Name"
+                        }
+                    } else {
+                        print("faliure")
+                    }
+                    
+                    
+                }catch {
+                    print("Error with Json: \(error)")
+                }
+                
             }
-            
         }
         
         task.resume()
         
         var tempData = [String:Any]() // creates a temporary array for the item info
-        tempData["name"] = "Water Bottle"
+        tempData["name"] = realName
         tempData["price"] = "$1.25"
-        tempData["upcCode"] = "\(code)"
+        tempData["upcCode"] = code
+       // tempData["itemImage"] = image
         
         print(tempData)
         GlobalData.items.append(tempData)
@@ -139,7 +167,7 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
         return .Portrait
     }
     
-    func screenshot() {
+ /*   func screenshot() {
         //Create the UIImage
         UIGraphicsBeginImageContext(view.frame.size)
         view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
@@ -149,6 +177,6 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
         //images.append(image);
         
         //Save it to the camera roll
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-    }
+       // UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    }*/
 }
