@@ -31,7 +31,6 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
         
         do {
             videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
-            print("Working!!!!!!!!!!")
         } catch {
             return
         }
@@ -101,6 +100,7 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
     
     func foundCode(longCode: String) {
         
+        print("FOUND CODE")
         //Create the UIImage
        /* UIGraphicsBeginImageContext(view.frame.size)
         view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
@@ -125,16 +125,11 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
                     
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
                     
-                    print(json!["name"] as! String)
-                    
                     let name = (json!["name"] as! String)
-                    print("name: \(name)")
                     realName = name
-                    print("realName: \(realName)")
                     
                     var tempData = [String:Any]() // creates a temporary array for the item info
                     tempData["name"] = realName
-                    print("tempDataName: \(tempData["name"])")
                     tempData["price"] = "$1.25"
                     tempData["upcCode"] = code
                     GlobalData.items.append(tempData)
