@@ -134,6 +134,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="UJP-gb-Btw"/>
+                    <connections>
+                        <outlet property="backButton" destination="bxe-jI-egx" id="rBh-TH-bfL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7G-hr-crY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -530,7 +533,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6ZA-NA-5tE"/>
+        <segue reference="1SX-p1-kMG"/>
         <segue reference="663-Nn-IIX"/>
     </inferredMetricsTieBreakers>
 </document>

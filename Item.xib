@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -18,34 +20,16 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PXB-wv-njn">
                         <rect key="frame" x="8" y="8" width="531" height="43"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="43" id="9F3-hb-uYT"/>
+                            <constraint firstAttribute="height" constant="43" id="a8K-Dj-XHE"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T1T-GP-Jy5">
-                        <rect key="frame" x="8" y="247" width="531" height="37"/>
+                        <rect key="frame" x="8" y="247" width="531" height="133"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="37" id="QFA-Ja-bkP"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UPC Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ic-eV-2nb">
-                        <rect key="frame" x="8" y="292" width="531" height="37"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="37" id="6zA-uL-4lD"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE8-RA-r4X">
-                        <rect key="frame" x="8" y="337" width="531" height="126"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="126" id="g7W-7f-yT5"/>
+                            <constraint firstAttribute="height" constant="133" id="UZF-On-Tzb"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,30 +38,33 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mFC-aL-hWA">
                         <rect key="frame" x="129" y="59" width="289" height="180"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="289" id="5KX-lD-Riu"/>
+                            <constraint firstAttribute="width" constant="289" id="R1o-Dl-9XW"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UPC Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ic-eV-2nb">
+                        <rect key="frame" x="8" y="359" width="531" height="104"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="PXB-wv-njn" firstAttribute="trailing" secondItem="T1T-GP-Jy5" secondAttribute="trailing" id="5ZD-TD-kO4"/>
-                    <constraint firstItem="T1T-GP-Jy5" firstAttribute="leading" secondItem="5ic-eV-2nb" secondAttribute="leading" id="67x-iJ-bZN"/>
-                    <constraint firstItem="mFC-aL-hWA" firstAttribute="centerX" secondItem="T1T-GP-Jy5" secondAttribute="centerX" id="9Hk-wU-FW5"/>
-                    <constraint firstItem="mFC-aL-hWA" firstAttribute="top" secondItem="PXB-wv-njn" secondAttribute="bottom" constant="8" symbolic="YES" id="Dkg-2r-yyn"/>
-                    <constraint firstItem="PXB-wv-njn" firstAttribute="trailing" secondItem="RC8-qy-UvN" secondAttribute="trailingMargin" id="Ev1-ja-Njt"/>
-                    <constraint firstItem="IE8-RA-r4X" firstAttribute="top" secondItem="5ic-eV-2nb" secondAttribute="bottom" constant="8" symbolic="YES" id="S9h-kq-emP"/>
-                    <constraint firstItem="PXB-wv-njn" firstAttribute="leading" secondItem="RC8-qy-UvN" secondAttribute="leadingMargin" id="XiO-Ao-4Ur"/>
-                    <constraint firstItem="T1T-GP-Jy5" firstAttribute="trailing" secondItem="5ic-eV-2nb" secondAttribute="trailing" id="dH4-Xg-2Zj"/>
-                    <constraint firstItem="IE8-RA-r4X" firstAttribute="bottom" secondItem="RC8-qy-UvN" secondAttribute="bottomMargin" id="iAl-0x-ffD"/>
-                    <constraint firstItem="T1T-GP-Jy5" firstAttribute="top" secondItem="mFC-aL-hWA" secondAttribute="bottom" constant="8" symbolic="YES" id="ipT-pS-wpJ"/>
-                    <constraint firstItem="PXB-wv-njn" firstAttribute="top" secondItem="RC8-qy-UvN" secondAttribute="topMargin" id="kDU-Bh-icJ"/>
-                    <constraint firstItem="5ic-eV-2nb" firstAttribute="leading" secondItem="IE8-RA-r4X" secondAttribute="leading" id="laK-Up-Dz1"/>
-                    <constraint firstItem="5ic-eV-2nb" firstAttribute="trailing" secondItem="IE8-RA-r4X" secondAttribute="trailing" id="nD6-Ny-0US"/>
-                    <constraint firstItem="PXB-wv-njn" firstAttribute="leading" secondItem="T1T-GP-Jy5" secondAttribute="leading" id="vD0-hg-Aov"/>
-                    <constraint firstItem="5ic-eV-2nb" firstAttribute="top" secondItem="T1T-GP-Jy5" secondAttribute="bottom" constant="8" symbolic="YES" id="wlJ-zV-Ewr"/>
+                    <constraint firstItem="PXB-wv-njn" firstAttribute="leading" secondItem="RC8-qy-UvN" secondAttribute="leadingMargin" id="2Jd-48-ffV"/>
+                    <constraint firstItem="T1T-GP-Jy5" firstAttribute="top" secondItem="mFC-aL-hWA" secondAttribute="bottom" constant="8" symbolic="YES" id="7rC-Fl-Umq"/>
+                    <constraint firstItem="5ic-eV-2nb" firstAttribute="bottom" secondItem="RC8-qy-UvN" secondAttribute="bottomMargin" id="7za-IR-lT5"/>
+                    <constraint firstItem="PXB-wv-njn" firstAttribute="trailing" secondItem="T1T-GP-Jy5" secondAttribute="trailing" id="HmT-hV-G6I"/>
+                    <constraint firstItem="T1T-GP-Jy5" firstAttribute="trailing" secondItem="5ic-eV-2nb" secondAttribute="trailing" id="KJ7-Nz-s7R"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="T1T-GP-Jy5" secondAttribute="bottom" constant="83" id="Pwr-OQ-9A6"/>
+                    <constraint firstItem="PXB-wv-njn" firstAttribute="centerX" secondItem="mFC-aL-hWA" secondAttribute="centerX" id="Qho-fD-pxg"/>
+                    <constraint firstItem="PXB-wv-njn" firstAttribute="leading" secondItem="T1T-GP-Jy5" secondAttribute="leading" id="RXH-dW-cSu"/>
+                    <constraint firstItem="T1T-GP-Jy5" firstAttribute="leading" secondItem="5ic-eV-2nb" secondAttribute="leading" id="U7Z-1I-Rwc"/>
+                    <constraint firstItem="T1T-GP-Jy5" firstAttribute="baseline" secondItem="5ic-eV-2nb" secondAttribute="firstBaseline" id="ZBJ-Hk-yXW"/>
+                    <constraint firstItem="PXB-wv-njn" firstAttribute="trailing" secondItem="RC8-qy-UvN" secondAttribute="trailingMargin" id="ZJX-b6-38b"/>
+                    <constraint firstItem="PXB-wv-njn" firstAttribute="top" secondItem="RC8-qy-UvN" secondAttribute="topMargin" id="dqp-jk-Ont"/>
+                    <constraint firstItem="mFC-aL-hWA" firstAttribute="top" secondItem="PXB-wv-njn" secondAttribute="bottom" constant="8" symbolic="YES" id="fws-xs-jzG"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="desc" destination="IE8-RA-r4X" id="bWb-Jf-Udn"/>
                 <outlet property="itemImage" destination="mFC-aL-hWA" id="zcI-rr-8pc"/>
                 <outlet property="name" destination="PXB-wv-njn" id="uXL-1I-395"/>
                 <outlet property="price" destination="T1T-GP-Jy5" id="06z-3Q-4b5"/>

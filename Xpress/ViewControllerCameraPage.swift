@@ -10,17 +10,22 @@ import UIKit
 import AVFoundation
 
 class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+    
+    @IBOutlet var backButton: UIButton!
+    
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("yeet")
+        
         view.backgroundColor = UIColor.blackColor()
+    
         captureSession = AVCaptureSession()
         
         let videoCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         let videoInput: AVCaptureDeviceInput
+        
         
         do {
             videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
@@ -51,8 +56,8 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession);
         previewLayer.frame = view.layer.bounds;
         previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        previewLayer.zPosition = -1
         view.layer.addSublayer(previewLayer);
-        
         captureSession.startRunning();
     }
     
@@ -92,16 +97,38 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func foundCode(code: String) {
-        var tempData = [String:String]() // creates a temporary array for the item info
+    func foundCode(longCode: String) {
+        
+        let code = longCode.characters.dropFirst()
+        
+        let requestURL : NSURL = NSURL(string: "https://api.outpan.com/v2/products/038000219740?apikey=f603e960da29067c4573079073426751")!
+        
+        let urlRequest : NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(urlRequest){
+            (data, response, error) -> Void in
+            
+            let httpResponse = response as! NSHTTPURLResponse
+            let statusCode = httpResponse.statusCode
+            
+            if (statusCode == 200){
+                print("Everything is fine, file downloaded successfully")
+            } else {
+                print("Sumthin not working dawg")
+            }
+            
+        }
+        
+        task.resume()
+        
+        var tempData = [String:Any]() // creates a temporary array for the item info
         tempData["name"] = "Water Bottle"
-        tempData["price"] = "$4.85"
-        tempData["upcCode"] = code
-        tempData["desc"] = "It's just water though"
+        tempData["price"] = "$1.25"
+        tempData["upcCode"] = "\(code)"
         
         print(tempData)
         GlobalData.items.append(tempData)
-        print(code)
+        //print(code)
     }
     
     override func prefersStatusBarHidden() -> Bool {

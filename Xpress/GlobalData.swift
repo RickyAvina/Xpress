@@ -12,7 +12,7 @@ class GlobalData {
     
     static let sharedInstance = GlobalData()
     
-    static var items = [[String:String]]()   // array of dictionaries
+    static var items = [[String:Any]]()   // array of dictionaries
     static var itemInfo = [String:Any]()  // contains all info of each item
         
     static var isFirstTime = Bool()
@@ -24,7 +24,7 @@ class GlobalData {
         if let isAppAlreadyLaunchedOnce = defaults.stringForKey("isAppAlreadyLaunchedOnce"){
             print("App already launched : \(isAppAlreadyLaunchedOnce)")
             return true
-        }else{
+        } else {
             defaults.setBool(true, forKey: "isAppAlreadyLaunchedOnce")
             print("App launched first time")
             return false

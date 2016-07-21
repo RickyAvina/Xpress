@@ -44,16 +44,16 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
         
         if (GlobalData.items.count != 0){
             if (GlobalData.items[indexPath.row]["name"] != nil){
-                cell?.name.text = GlobalData.items[indexPath.row]["name"]
+                cell?.name.text = GlobalData.items[indexPath.row]["name"] as? String
             }
             if (GlobalData.items[indexPath.row]["price"] != nil){
-                cell?.price.text = GlobalData.items[indexPath.row]["price"]
+                cell?.price.text = GlobalData.items[indexPath.row]["price"] as? String
             }
             if (GlobalData.items[indexPath.row]["upcCode"] != nil){
-                cell?.upcCode.text = GlobalData.items[indexPath.row]["upcCode"]
+                cell?.upcCode.text = GlobalData.items[indexPath.row]["upcCode"] as? String
             }
             if (GlobalData.items[indexPath.row]["desc"] != nil){
-                cell?.upcCode.text = GlobalData.items[indexPath.row]["desc"]
+                cell?.upcCode.text = GlobalData.items[indexPath.row]["desc"] as? String
             }
         }
             return cell!

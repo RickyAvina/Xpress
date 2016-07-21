@@ -15,7 +15,4 @@ class Item : UITableViewCell {
     @IBOutlet var itemImage: UIImageView!
     @IBOutlet var price: UILabel!
     @IBOutlet var upcCode: UILabel!
-    @IBOutlet var desc: UILabel!
-
-
 }
