@@ -127,9 +127,17 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
                     
                     print(json!["name"] as! String)
                     
-                    
                     let name = (json!["name"] as! String)
+                    print("name: \(name)")
                     realName = name
+                    print("realName: \(realName)")
+                    
+                    var tempData = [String:Any]() // creates a temporary array for the item info
+                    tempData["name"] = realName
+                    print("tempDataName: \(tempData["name"])")
+                    tempData["price"] = "$1.25"
+                    tempData["upcCode"] = code
+                    GlobalData.items.append(tempData)
                     
                 }catch {
                     print("Error with Json: \(error)")
@@ -139,15 +147,6 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
         
         task.resume()
         
-        var tempData = [String:Any]() // creates a temporary array for the item info
-        tempData["name"] = realName
-        tempData["price"] = "$1.25"
-        tempData["upcCode"] = code
-       // tempData["itemImage"] = image
-        
-      //  print(tempData)
-        GlobalData.items.append(tempData)
-        //print(code)
     }
     
     override func prefersStatusBarHidden() -> Bool {

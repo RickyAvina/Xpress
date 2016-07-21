@@ -12,7 +12,6 @@ import UIKit
 class Item : UITableViewCell {
     
     @IBOutlet var name: UILabel!
-    @IBOutlet var itemImage: UIImageView!
     @IBOutlet var price: UILabel!
     @IBOutlet var upcCode: UILabel!
 }
