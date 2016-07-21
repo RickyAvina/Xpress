@@ -109,7 +109,7 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
     
         let code = longCode.substringFromIndex(longCode.startIndex.successor())
         
-        var realName = String()
+        var realName = ""
         
         let requestURL : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\(code)?apikey=f603e960da29067c4573079073426751")!
         
@@ -120,30 +120,21 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
             
             let httpResponse = response as! NSHTTPURLResponse
             let statusCode = httpResponse.statusCode
-            
-            if (statusCode == 200) { // everything works
-                print("Everyone is fine, file downloaded successfully.")
                 
                 do{
                     
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options:.AllowFragments)
+                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
                     
-                    if let name = json["name"] as? String {
-                        if name.characters.count > 0 {
-                        realName = name
-                        } else {
-                            realName = "No Name"
-                        }
-                    } else {
-                        print("faliure")
-                    }
+                    print(json!["name"] as! String)
                     
+                    
+                    let name = (json!["name"] as! String)
+                    realName = name
                     
                 }catch {
                     print("Error with Json: \(error)")
                 }
-                
-            }
+            
         }
         
         task.resume()
@@ -154,7 +145,7 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
         tempData["upcCode"] = code
        // tempData["itemImage"] = image
         
-        print(tempData)
+      //  print(tempData)
         GlobalData.items.append(tempData)
         //print(code)
     }
