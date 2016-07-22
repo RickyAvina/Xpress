@@ -86,6 +86,7 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
     }
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+
         captureSession.stopRunning()
         
         if let metadataObject = metadataObjects.first {
@@ -94,19 +95,13 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
             AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             foundCode(readableObject.stringValue);
         }
-        
+
         dismissViewControllerAnimated(true, completion: nil)
     }
     
     func foundCode(longCode: String) {
-        
         print("FOUND CODE")
-        //Create the UIImage
-       /* UIGraphicsBeginImageContext(view.frame.size)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()*/
-    
+        
         let code = longCode.substringFromIndex(longCode.startIndex.successor())
         
         var realName = ""
@@ -117,20 +112,33 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(urlRequest) {
             (data, response, error) -> Void in
-                
+            
                 do{
                     
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
                     
-                    let name = (json!["name"] as! String)
-                    realName = name
-                    
                     var tempData = [String:Any]() // creates a temporary array for the item info
-                    tempData["name"] = realName
-                    tempData["price"] = "$1.25"
                     tempData["upcCode"] = code
-                    GlobalData.items.append(tempData)
-                    
+                    tempData["price"] = "$1.25"
+
+                    if let name = (json!["name"] as? String){
+                    realName = name
+                    tempData["name"] = realName
+                        
+                    } else {
+                        if let brand = (json!["attributes"]!["brand"] as? String){
+                            print("Brand")
+                            realName = brand
+                            tempData["name"] = realName
+                        } else {
+                            print("else")
+                            realName = "name not avaliable"
+                            tempData["name"] = realName
+                        }
+                        
+                        GlobalData.items.append(tempData)
+                        
+                    }
                 }catch {
                     print("Error with Json: \(error)")
                 }
@@ -149,16 +157,31 @@ class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjects
         return .Portrait
     }
     
- /*   func screenshot() {
+    /*func screenShotMethod() -> UIImage{
         //Create the UIImage
-        UIGraphicsBeginImageContext(view.frame.size)
+        var image : UIImage?
+        dispatch_async(dispatch_get_main_queue()) {
+            // Do UI stuff here
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        //Save it to the camera roll
+        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+        
+        }
+        
+        return image!
+    }*/
+    
+    func screenShotMethod(){
+        //Create the UIImage
+        UIGraphicsBeginImageContext(view.bounds.size)
         view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        
-        //images.append(image);
-        
         //Save it to the camera roll
-       // UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
-    }*/
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    }
 }

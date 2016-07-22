@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,9 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        GlobalData.isFirstTime = GlobalData.firstTimeLaunching()
-        print("First time?: \(GlobalData.isFirstTime)")
+        STPPaymentConfiguration.sharedConfiguration().publishableKey = "pk_test_XvvvpT9CbWsx3MOlHeOsTZPL"
         return true
     }
 

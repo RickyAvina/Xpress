@@ -23,6 +23,11 @@
 		944004101D400FDC0000098F /* ViewControllerListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9440040F1D400FDC0000098F /* ViewControllerListPage.swift */; };
 		944004141D4012EF0000098F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944004131D4012EF0000098F /* Item.swift */; };
 		944004161D40134D0000098F /* Item.xib in Resources */ = {isa = PBXBuildFile; fileRef = 944004151D40134D0000098F /* Item.xib */; };
+		94F7513A1D41BB3300413DDA /* +UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F751391D41BB3300413DDA /* +UIView.swift */; };
+		94F7513C1D41BFE100413DDA /* +NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */; };
+		94F7513E1D41C79C00413DDA /* Stripe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F7513D1D41C79C00413DDA /* Stripe.framework */; };
+		94F7513F1D41C79C00413DDA /* Stripe.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 94F7513D1D41C79C00413DDA /* Stripe.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		94F751431D41C98F00413DDA /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F751421D41C98F00413DDA /* CheckoutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +46,20 @@
 			remoteInfo = Xpress;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		94F751401D41C79C00413DDA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				94F7513F1D41C79C00413DDA /* Stripe.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		943D067D1D3B25A800730F39 /* Xpress.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Xpress.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +84,10 @@
 		9440040F1D400FDC0000098F /* ViewControllerListPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerListPage.swift; sourceTree = "<group>"; };
 		944004131D4012EF0000098F /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		944004151D40134D0000098F /* Item.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Item.xib; path = ../Item.xib; sourceTree = "<group>"; };
+		94F751391D41BB3300413DDA /* +UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+UIView.swift"; sourceTree = "<group>"; };
+		94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+NSUserDefaults.swift"; sourceTree = "<group>"; };
+		94F7513D1D41C79C00413DDA /* Stripe.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Stripe.framework; sourceTree = "<group>"; };
+		94F751421D41C98F00413DDA /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94F7513E1D41C79C00413DDA /* Stripe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +123,7 @@
 				943D06971D3B25A900730F39 /* XpressTests */,
 				943D06A21D3B25A900730F39 /* XpressUITests */,
 				943D067E1D3B25A800730F39 /* Products */,
+				94F7513D1D41C79C00413DDA /* Stripe.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,14 +141,17 @@
 			isa = PBXGroup;
 			children = (
 				943D06801D3B25A800730F39 /* AppDelegate.swift */,
+				94F751421D41C98F00413DDA /* CheckoutViewController.swift */,
 				943D06821D3B25A800730F39 /* ViewController.swift */,
 				943D06841D3B25A800730F39 /* Main.storyboard */,
 				944004151D40134D0000098F /* Item.xib */,
 				944004131D4012EF0000098F /* Item.swift */,
 				9440040B1D3F45B50000098F /* ViewControllerCameraPage.swift */,
+				94F751391D41BB3300413DDA /* +UIView.swift */,
 				944004031D3D90D70000098F /* ViewControllerMainPage.swift */,
 				9440040F1D400FDC0000098F /* ViewControllerListPage.swift */,
 				944004091D3F3B540000098F /* GlobalData.swift */,
+				94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */,
 				944004051D3EB7690000098F /* ViewControllerLoginPage.swift */,
 				944003FF1D3D7D050000098F /* ViewControllerRegisterPage.swift */,
 				943D068A1D3B25A800730F39 /* Assets.xcassets */,
@@ -162,6 +190,8 @@
 				943D06791D3B25A800730F39 /* Sources */,
 				943D067A1D3B25A800730F39 /* Frameworks */,
 				943D067B1D3B25A800730F39 /* Resources */,
+				94F751401D41C79C00413DDA /* Embed Frameworks */,
+				94F751411D41C7F200413DDA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -282,12 +312,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		94F751411D41C7F200413DDA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework/integrate-dynamic-framework.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		943D06791D3B25A800730F39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				944004141D4012EF0000098F /* Item.swift in Sources */,
+				94F751431D41C98F00413DDA /* CheckoutViewController.swift in Sources */,
 				944004001D3D7D050000098F /* ViewControllerRegisterPage.swift in Sources */,
 				943D06831D3B25A800730F39 /* ViewController.swift in Sources */,
 				943D06891D3B25A800730F39 /* Xpress.xcdatamodeld in Sources */,
@@ -297,6 +344,8 @@
 				944004061D3EB7690000098F /* ViewControllerLoginPage.swift in Sources */,
 				9440040C1D3F45B50000098F /* ViewControllerCameraPage.swift in Sources */,
 				9440040A1D3F3B540000098F /* GlobalData.swift in Sources */,
+				94F7513A1D41BB3300413DDA /* +UIView.swift in Sources */,
+				94F7513C1D41BFE100413DDA /* +NSUserDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +489,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Xpress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RickyAvina.Xpress;
@@ -451,6 +504,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Xpress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RickyAvina.Xpress;
