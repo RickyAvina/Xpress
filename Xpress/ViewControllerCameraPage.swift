@@ -19,7 +19,7 @@ class ViewControllerCameraPage: UIViewController, SBSScanDelegate, SBSOverlayCon
         super.viewDidLoad()
         
         let settings = SBSScanSettings.pre47DefaultSettings();
-        settings.cameraFacingPreference = SBSCameraFacingDirection.__CAMERA_FACING_BACK
+        settings.cameraFacingPreference = SBSCameraFacingDirection.Back
         
         // types of symbologies (types of barcodes)
         settings.setSymbology(SBSSymbology.EAN13, enabled: true)
@@ -41,17 +41,22 @@ class ViewControllerCameraPage: UIViewController, SBSScanDelegate, SBSOverlayCon
         picker?.startScanning()
         
         // Show scanner
-        self.presentViewController(picker!, animated: true, completion: nil)
-        
+            self.dismissViewControllerAnimated(true, completion: nil)
+            self.presentViewController(picker!, animated: true, completion: nil)
         }
     
     func barcodePicker(picker: SBSBarcodePicker, didScan session: SBSScanSession) {
-        let recognized : [AnyObject] = session.newlyRecognizedCodes;
-        let code : SBSCode = recognized.first as! SBSCode
+        let code : SBSCode = session.newlyLocalizedCodes[0] as! SBSCode
         
         // code to handle barcode result
-        print("scanned: \(code.symbology), barcode: \(code.data)")
+        dispatch_async(dispatch_get_main_queue()) {
+            print("scanned: \(code.symbology), barcode: \(code.data)")
+        }
         
+    }
+    
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+        picker?.startScanning();
     }
     
     func overlayController(overlayController: SBSOverlayController, didCancelWithStatus status: [NSObject : AnyObject]?) {
