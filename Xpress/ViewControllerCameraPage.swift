@@ -9,179 +9,52 @@
 import UIKit
 import AVFoundation
 
-class ViewControllerCameraPage: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ViewControllerCameraPage: UIViewController, SBSScanDelegate, SBSOverlayControllerDidCancelDelegate {
+    
+    var picker : SBSBarcodePicker?
     
     @IBOutlet var backButton: UIButton!
-    
-    var captureSession: AVCaptureSession!
-    var previewLayer: AVCaptureVideoPreviewLayer!
-    
-    var images: [UIImage] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor.blackColor()
-    
-        captureSession = AVCaptureSession()
+        let settings = SBSScanSettings.pre47DefaultSettings();
+        settings.cameraFacingPreference = SBSCameraFacingDirection.__CAMERA_FACING_BACK
         
-        let videoCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-        let videoInput: AVCaptureDeviceInput
+        // types of symbologies (types of barcodes)
+        settings.setSymbology(SBSSymbology.EAN13, enabled: true)
+        settings.setSymbology(SBSSymbology.UPC12, enabled: true)
+        settings.setSymbology(SBSSymbology.QR, enabled: true)
         
+        let thePicker = SBSBarcodePicker(settings:settings);
         
-        do {
-            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
-        } catch {
-            return
-        }
+        // set delegate to recieve scan events
+        picker?.scanDelegate = self
         
-        if (captureSession.canAddInput(videoInput)) {
-            captureSession.addInput(videoInput)
-        } else {
-            failed();
-            return;
-        }
+        // set the allowed interface orientations. The value UIInterfaceOrientationMaskAll is the
+        // default and is only shown here for completeness.
+        thePicker.allowedInterfaceOrientations = UIInterfaceOrientationMask.All;
         
-        let metadataOutput = AVCaptureMetadataOutput()
-        
-        if (captureSession.canAddOutput(metadataOutput)) {
-            captureSession.addOutput(metadataOutput)
-            
-            metadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
-            metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypePDF417Code]
-        } else {
-            failed()
-            return
-        }
-        
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession);
-        previewLayer.frame = view.layer.bounds;
-        previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
-        previewLayer.zPosition = -1
-        view.layer.addSublayer(previewLayer);
-        captureSession.startRunning();
-    }
-    
-    func failed() {
-        let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .Alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-        presentViewController(ac, animated: true, completion: nil)
-        captureSession = nil
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if (captureSession?.running == false) {
-            captureSession.startRunning();
-        }
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        if (captureSession?.running == true) {
-            captureSession.stopRunning();
-        }
-    }
-    
-    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+        picker = thePicker;
 
-        captureSession.stopRunning()
+        // Start Scanning
+        picker?.startScanning()
         
-        if let metadataObject = metadataObjects.first {
-            let readableObject = metadataObject as! AVMetadataMachineReadableCodeObject;
-            
-            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
-            foundCode(readableObject.stringValue);
-        }
-
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func foundCode(longCode: String) {
-        print("FOUND CODE")
-        
-        let code = longCode.substringFromIndex(longCode.startIndex.successor())
-        
-        var realName = ""
-        
-        let requestURL : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\(code)?apikey=f603e960da29067c4573079073426751")!
-        
-        let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(urlRequest) {
-            (data, response, error) -> Void in
-            
-                do{
-                    
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
-                    
-                    var tempData = [String:Any]() // creates a temporary array for the item info
-                    tempData["upcCode"] = code
-                    tempData["price"] = "$1.25"
-
-                    if let name = (json!["name"] as? String){
-                    realName = name
-                    tempData["name"] = realName
-                        
-                    } else {
-                        if let brand = (json!["attributes"]!["brand"] as? String){
-                            print("Brand")
-                            realName = brand
-                            tempData["name"] = realName
-                        } else {
-                            print("else")
-                            realName = "name not avaliable"
-                            tempData["name"] = realName
-                        }
-                        
-                        GlobalData.items.append(tempData)
-                        
-                    }
-                }catch {
-                    print("Error with Json: \(error)")
-                }
-            
-        }
-        
-        task.resume()
-        
-    }
-    
-    override func prefersStatusBarHidden() -> Bool {
-        return true
-    }
-    
-    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
-        return .Portrait
-    }
-    
-    /*func screenShotMethod() -> UIImage{
-        //Create the UIImage
-        var image : UIImage?
-        dispatch_async(dispatch_get_main_queue()) {
-            // Do UI stuff here
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        //Save it to the camera roll
-        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+        // Show scanner
+        self.presentViewController(picker!, animated: true, completion: nil)
         
         }
-        
-        return image!
-    }*/
     
-    func screenShotMethod(){
-        //Create the UIImage
-        UIGraphicsBeginImageContext(view.bounds.size)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        //Save it to the camera roll
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    func barcodePicker(picker: SBSBarcodePicker, didScan session: SBSScanSession) {
+        let recognized : [AnyObject] = session.newlyRecognizedCodes;
+        let code : SBSCode = recognized.first as! SBSCode
+        
+        // code to handle barcode result
+        print("scanned: \(code.symbology), barcode: \(code.data)")
+        
+    }
+    
+    func overlayController(overlayController: SBSOverlayController, didCancelWithStatus status: [NSObject : AnyObject]?) {
+        // called when user cancles barcode scan process
     }
 }
