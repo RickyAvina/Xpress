@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewControllerCameraPage: UIViewController, SBSScanDelegate, SBSOverlayControllerDidCancelDelegate {
+class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayControllerDidCancelDelegate {
     
     var picker : SBSBarcodePicker?
     
@@ -36,17 +36,42 @@ class ViewControllerCameraPage: UIViewController, SBSScanDelegate, SBSOverlayCon
         thePicker.allowedInterfaceOrientations = UIInterfaceOrientationMask.All;
         
         picker = thePicker;
-
-        // Start Scanning
-        picker?.startScanning()
         
         // Show scanner
-            self.dismissViewControllerAnimated(true, completion: nil)
-            self.presentViewController(picker!, animated: true, completion: nil)
+        
+        self.addChildViewController(self.picker!)
+        self.view.addSubview(self.picker!.view)
+        self.picker?.didMoveToParentViewController(self)
+        
+        self.picker?.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add constaints to place the picker at the top of the controller with a heigh of 300 and the same width as the controller. Since this is not the aspect ration of the preview, some of the videp will be cut away on the top and the bottom
+        
+        var pickerView : UIView = self.picker!.view
+        var views : [String:AnyObject] = ["pickerView" : pickerView]
+        
+        if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1){
+            var topGuide = self.topLayoutGuide
+            views = ["pickerView" : pickerView, "topGuide" : topGuide]
+            self.view!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[topGuide][pickerView(300)]", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: views))
+            
+        } else {
+            // there is no topLayoutGuide under iOS6
+            self.view!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|(50)-[pickerView(300)]", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: views))
+        }
+        
+         self.view!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: views))
+        
+        // Start Scanning
+        self.picker?.startScanning()
+        
+       // self.presentViewController(picker!, animated: true, completion: nil)
         }
     
     func barcodePicker(picker: SBSBarcodePicker, didScan session: SBSScanSession) {
-        let code : SBSCode = session.newlyLocalizedCodes[0] as! SBSCode
+        picker.stopScanning()
+        print("AYY")
+        let code : SBSCode = session.newlyRecognizedCodes[0] as! SBSCode
         
         // code to handle barcode result
         dispatch_async(dispatch_get_main_queue()) {
