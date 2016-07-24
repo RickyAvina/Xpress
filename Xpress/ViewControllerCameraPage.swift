@@ -26,6 +26,14 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
         settings.setSymbology(SBSSymbology.UPC12, enabled: true)
         settings.setSymbology(SBSSymbology.QR, enabled: true)
         
+        // set up double tap guesture
+        let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
+        tap.numberOfTapsRequired = 2
+        view.addGestureRecognizer(tap)
+        
+        backButton.hidden = false
+        backButton.bringSubviewToFront(backButton)
+        
        // let thePicker = SBSBarcodePicker(settings:settings);
         picker = SBSBarcodePicker(settings: settings)
         // set delegate to recieve scan events
@@ -34,7 +42,6 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
         // set the allowed interface orientations. The value UIInterfaceOrientationMaskAll is the
         // default and is only shown here for completeness.
         picker!.allowedInterfaceOrientations = UIInterfaceOrientationMask.All;
-        
         
         
         // Show scanner
@@ -48,16 +55,18 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
         // Add constaints to place the picker at the top of the controller with a heigh of 300 and the same width as the controller. Since this is not the aspect ration of the preview, some of the videp will be cut away on the top and the bottom
         
         let pickerView : UIView = self.picker!.view
+      //  pickerView.pb_takeSnapshot()
+      
         var views : [String:AnyObject] = ["pickerView" : pickerView]
         
         if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1){
             let topGuide = self.topLayoutGuide
             views = ["pickerView" : pickerView, "topGuide" : topGuide]
-            self.view!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[topGuide][pickerView(300)]", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: views))
+            self.view!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[topGuide][pickerView(700)]", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: views))
             
         } else {
             // there is no topLayoutGuide under iOS6
-            self.view!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|(50)-[pickerView(300)]", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: views))
+            self.view!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|(50)-[pickerView(self.view.bounds.height)]", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: views))
         }
         
     self.view!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: views))
@@ -89,4 +98,9 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
     func overlayController(overlayController: SBSOverlayController, didCancelWithStatus status: [NSObject : AnyObject]?) {
         // called when user cancles barcode scan process
     }
+    
+    func doubleTapped(){
+        performSegueWithIdentifier("goBackToMainPage", sender: nil)
+    }
+    
 }

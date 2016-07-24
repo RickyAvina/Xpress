@@ -121,7 +121,7 @@
                                 <rect key="frame" x="26" y="24" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="sql-6m-YJN" kind="show" id="1SX-p1-kMG"/>
+                                    <segue destination="sql-6m-YJN" kind="show" identifier="goBackToMainPage" id="1SX-p1-kMG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -135,12 +135,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="UJP-gb-Btw"/>
                     <connections>
-                        <outlet property="backButton" destination="bxe-jI-egx" id="rBh-TH-bfL"/>
+                        <outlet property="backButton" destination="bxe-jI-egx" id="FOB-2m-dWi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W7G-hr-crY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1241" y="-354"/>
+            <point key="canvasLocation" x="-1120" y="-365"/>
         </scene>
         <!--View Controller List Page-->
         <scene sceneID="oOe-EF-agC">
