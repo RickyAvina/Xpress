@@ -18,4 +18,9 @@ class ViewControllerLoginPage: UIViewController {
         
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // called when the user click on the view
+        self.view.endEditing(true)
+    }
+    
 }

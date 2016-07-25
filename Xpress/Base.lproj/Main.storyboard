@@ -401,11 +401,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*********" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xFf-GK-cP7">
-                                <rect key="frame" x="315" y="492" width="214" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nvc-gR-5iZ">
                                 <rect key="frame" x="194" y="550" width="212" height="30"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -414,6 +409,7 @@
                                 </constraints>
                                 <state key="normal" title="Register"/>
                                 <connections>
+                                    <action selector="registerUser:" destination="YFb-Bb-nst" eventType="touchUpInside" id="Fog-Bo-ZYK"/>
                                     <segue destination="FL3-Qp-JDi" kind="show" id="IuC-BU-xku"/>
                                 </connections>
                             </button>
@@ -423,6 +419,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="*********" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xFf-GK-cP7">
+                                <rect key="frame" x="315" y="492" width="214" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -465,12 +466,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="kEu-J0-DMd" id="iLe-71-k2v"/>
                         <outlet property="firstNameLabel" destination="qFt-Jz-K1V" id="rWd-0U-2kM"/>
                         <outlet property="firstNameTextField" destination="xwD-1z-jge" id="BVV-9g-ePk"/>
                         <outlet property="lastNameLabel" destination="qyX-vV-dyQ" id="Bgv-eF-La8"/>
                         <outlet property="lastNameTextField" destination="e70-3u-87L" id="1dV-wD-WkV"/>
                         <outlet property="middleInitialPicker" destination="oUe-mU-2nZ" id="6eD-VR-cFV"/>
                         <outlet property="midleInitialLabel" destination="ddb-gW-rmL" id="ttH-Jm-BTl"/>
+                        <outlet property="passwordTextField" destination="xFf-GK-cP7" id="9Yh-sO-iII"/>
                         <outlet property="registerLabel" destination="JPu-lW-PaP" id="AGA-B6-Hj4"/>
                     </connections>
                 </viewController>

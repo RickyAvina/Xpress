@@ -6,9 +6,10 @@
 //  Copyright © 2016 RickyAvina. All rights reserved.
 //
 
-#ifndef BridgeHeader_h_h
-#define BridgeHeader_h_h
+#ifndef BridgeHeader_h
+#define BridgeHeader_h
 
 
 #endif /* BridgeHeader_h_h */
 #import <ScanditBarcodeScanner/ScanditBarcodeScanner.h>
+#import <BuiltIO/BuiltIO.h>

@@ -20,8 +20,40 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
     
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet var lastNameTextField: UITextField!
-
+    
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    
     var middleInitialPickerData : [String] = [String]()
+    
+    @IBAction func registerUser(sender: UIButton) {
+        
+        let middleInitial: String = self.pickerView(middleInitialPicker, titleForRow: middleInitialPicker.selectedRowInComponent(0), forComponent: 0)!
+        
+        if (firstNameLabel.text?.characters.count > 0 &&  lastNameLabel.text?.characters.count > 0){
+            print("firstNametrue")
+            if (emailTextField.text?.containsString("@") == true && emailTextField.text?.containsString(".") == true){
+                print("email")
+                if (middleInitial.characters.count > 0){
+                    
+                    GlobalData.sharedInstance.registerUser(firstNameLabel.text!, lastName: lastNameLabel.text!, middleInitial: middleInitial, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: { Void in
+                        
+                        print("Successs!DF(D*#(*($*")
+                    })
+                } else {
+                    GlobalData.sharedInstance.registerUser(firstNameLabel.text!, lastName: lastNameLabel.text!, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: { Void in
+                        })
+                }
+            } else {
+                print("Enter a valid email")
+            }
+        } else {
+            print("Enter valid First name and last name")
+        }
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,5 +81,10 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return middleInitialPickerData[row]
     }
-
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // called when the user click on the view
+        self.view.endEditing(true)
+    }
+    
 }

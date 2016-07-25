@@ -40,6 +40,17 @@
 		944004101D400FDC0000098F /* ViewControllerListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9440040F1D400FDC0000098F /* ViewControllerListPage.swift */; };
 		944004141D4012EF0000098F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944004131D4012EF0000098F /* Item.swift */; };
 		944004161D40134D0000098F /* Item.xib in Resources */ = {isa = PBXBuildFile; fileRef = 944004151D40134D0000098F /* Item.xib */; };
+		949FFBEB1D45E6CA00119162 /* BuiltIO.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 949FFBE91D45E6CA00119162 /* BuiltIO.bundle */; };
+		949FFBEC1D45E6CA00119162 /* BuiltIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBEA1D45E6CA00119162 /* BuiltIO.framework */; };
+		949FFBEE1D45E70E00119162 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBED1D45E70E00119162 /* Accounts.framework */; };
+		949FFBF01D45E71300119162 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBEF1D45E71300119162 /* CFNetwork.framework */; };
+		949FFBF21D45E71800119162 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBF11D45E71800119162 /* CoreData.framework */; };
+		949FFBF41D45E72200119162 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBF31D45E72200119162 /* CoreLocation.framework */; };
+		949FFBF61D45E72800119162 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBF51D45E72800119162 /* CoreTelephony.framework */; };
+		949FFBF81D45E73000119162 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBF71D45E73000119162 /* MobileCoreServices.framework */; };
+		949FFBFA1D45E73600119162 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBF91D45E73600119162 /* Security.framework */; };
+		949FFBFC1D45E74100119162 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBFB1D45E74100119162 /* libicucore.tbd */; };
+		949FFBFE1D45E74900119162 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBFD1D45E74900119162 /* libsqlite3.tbd */; };
 		94F7513A1D41BB3300413DDA /* +UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F751391D41BB3300413DDA /* +UIView.swift */; };
 		94F7513C1D41BFE100413DDA /* +NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */; };
 /* End PBXBuildFile section */
@@ -115,6 +126,17 @@
 		9440040F1D400FDC0000098F /* ViewControllerListPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerListPage.swift; sourceTree = "<group>"; };
 		944004131D4012EF0000098F /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		944004151D40134D0000098F /* Item.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = Item.xib; path = ../Item.xib; sourceTree = "<group>"; };
+		949FFBE91D45E6CA00119162 /* BuiltIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BuiltIO.bundle; sourceTree = "<group>"; };
+		949FFBEA1D45E6CA00119162 /* BuiltIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuiltIO.framework; sourceTree = "<group>"; };
+		949FFBED1D45E70E00119162 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		949FFBEF1D45E71300119162 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		949FFBF11D45E71800119162 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		949FFBF31D45E72200119162 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		949FFBF51D45E72800119162 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		949FFBF71D45E73000119162 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		949FFBF91D45E73600119162 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		949FFBFB1D45E74100119162 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		949FFBFD1D45E74900119162 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		94F751391D41BB3300413DDA /* +UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+UIView.swift"; sourceTree = "<group>"; };
 		94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+NSUserDefaults.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,19 +146,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9437F0E31D4329E500E1D257 /* MediaPlayer.framework in Frameworks */,
+				949FFBFE1D45E74900119162 /* libsqlite3.tbd in Frameworks */,
+				949FFBFC1D45E74100119162 /* libicucore.tbd in Frameworks */,
 				9437F0E11D4329D400E1D257 /* SystemConfiguration.framework in Frameworks */,
+				949FFBFA1D45E73600119162 /* Security.framework in Frameworks */,
+				949FFBF81D45E73000119162 /* MobileCoreServices.framework in Frameworks */,
+				949FFBF61D45E72800119162 /* CoreTelephony.framework in Frameworks */,
+				949FFBF41D45E72200119162 /* CoreLocation.framework in Frameworks */,
+				9437F0D71D4329AB00E1D257 /* CoreGraphics.framework in Frameworks */,
+				949FFBF21D45E71800119162 /* CoreData.framework in Frameworks */,
+				949FFBF01D45E71300119162 /* CFNetwork.framework in Frameworks */,
+				949FFBEE1D45E70E00119162 /* Accounts.framework in Frameworks */,
+				9437F0E31D4329E500E1D257 /* MediaPlayer.framework in Frameworks */,
 				9437F0DF1D4329C100E1D257 /* QuartzCore.framework in Frameworks */,
 				9437F0DD1D4329BB00E1D257 /* CoreMedia.framework in Frameworks */,
 				9437F0DB1D4329B500E1D257 /* AVFoundation.framework in Frameworks */,
 				9437F0D91D4329B000E1D257 /* AudioToolbox.framework in Frameworks */,
-				9437F0D71D4329AB00E1D257 /* CoreGraphics.framework in Frameworks */,
 				9437F0D51D4329A600E1D257 /* Foundation.framework in Frameworks */,
 				9437F0D31D4329A100E1D257 /* UIKit.framework in Frameworks */,
 				9437F0D11D43299B00E1D257 /* CoreVideo.framework in Frameworks */,
 				9437F0CF1D43299600E1D257 /* MessageUI.framework in Frameworks */,
 				9437F0E51D432A2500E1D257 /* ScanditBarcodeScanner.framework in Frameworks */,
 				9437F0CD1D43299100E1D257 /* OpenGLES.framework in Frameworks */,
+				949FFBEC1D45E6CA00119162 /* BuiltIO.framework in Frameworks */,
 				9437F0CB1D43298C00E1D257 /* CoreText.framework in Frameworks */,
 				9437F0C91D43298700E1D257 /* libz.tbd in Frameworks */,
 				9437F0C71D43298200E1D257 /* libiconv.tbd in Frameworks */,
@@ -164,6 +196,15 @@
 		71CB0D8797E3152F7ACCEDC5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				949FFBFD1D45E74900119162 /* libsqlite3.tbd */,
+				949FFBFB1D45E74100119162 /* libicucore.tbd */,
+				949FFBF91D45E73600119162 /* Security.framework */,
+				949FFBF71D45E73000119162 /* MobileCoreServices.framework */,
+				949FFBF51D45E72800119162 /* CoreTelephony.framework */,
+				949FFBF31D45E72200119162 /* CoreLocation.framework */,
+				949FFBF11D45E71800119162 /* CoreData.framework */,
+				949FFBEF1D45E71300119162 /* CFNetwork.framework */,
+				949FFBED1D45E70E00119162 /* Accounts.framework */,
 				9437F0E41D432A2500E1D257 /* ScanditBarcodeScanner.framework */,
 				9437F0E21D4329E500E1D257 /* MediaPlayer.framework */,
 				9437F0E01D4329D400E1D257 /* SystemConfiguration.framework */,
@@ -181,6 +222,8 @@
 				9437F0C81D43298700E1D257 /* libz.tbd */,
 				9437F0C61D43298200E1D257 /* libiconv.tbd */,
 				9437F0C41D43297A00E1D257 /* libc++.tbd */,
+				949FFBE91D45E6CA00119162 /* BuiltIO.bundle */,
+				949FFBEA1D45E6CA00119162 /* BuiltIO.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -357,6 +400,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				949FFBEB1D45E6CA00119162 /* BuiltIO.bundle in Resources */,
 				944004161D40134D0000098F /* Item.xib in Resources */,
 				943D068E1D3B25A800730F39 /* LaunchScreen.storyboard in Resources */,
 				943D068B1D3B25A800730F39 /* Assets.xcassets in Resources */,
@@ -540,16 +584,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Xpress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = RickyAvina.Xpress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Xpress//BridgeHeader.h";
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
 			};
 			name = Debug;
 		};
@@ -557,16 +604,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Xpress/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = RickyAvina.Xpress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Xpress//BridgeHeader.h";
+				VALID_ARCHS = "arm64 armv7 armv7s i386";
 			};
 			name = Release;
 		};

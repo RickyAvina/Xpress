@@ -23,8 +23,17 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
         
         // types of symbologies (types of barcodes)
         settings.setSymbology(SBSSymbology.EAN13, enabled: true)
+        settings.setSymbology(SBSSymbology.EAN8, enabled: true)
+        settings.setSymbology(SBSSymbology.Aztec, enabled: true)
+        settings.setSymbology(SBSSymbology.Code11, enabled: true)
+        settings.setSymbology(SBSSymbology.Code25, enabled: true)
         settings.setSymbology(SBSSymbology.UPC12, enabled: true)
         settings.setSymbology(SBSSymbology.QR, enabled: true)
+        settings.setSymbology(SBSSymbology.Code39, enabled: true)
+        settings.setSymbology(SBSSymbology.UPCE, enabled: true)
+        settings.setSymbology(SBSSymbology.Code93, enabled: true)
+        settings.setSymbology(SBSSymbology.Codabar, enabled: true)
+        settings.setSymbology(SBSSymbology.MaxiCode, enabled: true)
         
         // set up double tap guesture
         let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTapped))
@@ -82,12 +91,62 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
     func barcodePicker(picker: SBSBarcodePicker, didScan session: SBSScanSession) {
         print("AYY")
         session.stopScanning()
+        
+    
         let code : SBSCode = session.newlyRecognizedCodes[0] as! SBSCode
         
+        if (code.symbology != SBSSymbology.Unknown){
         // code to handle barcode result
-       // dispatch_async(dispatch_get_main_queue()) {
-            print("scanned: \(code.symbology), barcode: \(code.data)")
-       // }
+            
+            
+        dispatch_async(dispatch_get_main_queue()) {
+            
+            let requestURL : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\((code.data)!)?apikey=f603e960da29067c4573079073426751")!
+            
+            let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
+            
+            let session = NSURLSession.sharedSession()
+
+            
+             let task = session.dataTaskWithRequest(urlRequest) {
+                (data, response, error) -> Void in
+                
+                let httpResponse = response as! NSHTTPURLResponse
+                let statusCode = httpResponse.statusCode
+                
+                if (statusCode == 200){
+                do{
+                    
+                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+                    
+                    let name = (json!["name"] as! String)
+                    
+                    var tempData = [String:Any]() // creates a temporary array for the item info
+                    tempData["name"] = name
+                    tempData["price"] = "$1.25"
+                    tempData["upcCode"] = code.data
+                    
+                    print(tempData)
+                    GlobalData.items.append(tempData)
+                    
+                }catch {
+                    print("Error with Json: \(error)")
+                }
+                
+                } else {
+                    print("NO INTERNET CONNECTION")
+                }
+            }
+            task.resume()
+            
+        
+            }
+        }
+        
+            self.performSegueWithIdentifier("goBackToMainPage", sender: nil)
+
+            
+           // print("scanned: \(code.symbology), barcode: \(code.data)")
         
     }
     

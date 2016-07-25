@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         
         SBSLicense.setAppKey(kScanditBarcodeScannerAppKey);
         UIApplication.sharedApplication().statusBarHidden = true
+        GlobalData.sharedInstance.initialize()
         return true
     }
     
