@@ -30,18 +30,18 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
         
         let middleInitial: String = self.pickerView(middleInitialPicker, titleForRow: middleInitialPicker.selectedRowInComponent(0), forComponent: 0)!
         
-        if (firstNameLabel.text?.characters.count > 0 &&  lastNameLabel.text?.characters.count > 0){
+        if (firstNameTextField.text?.characters.count > 0 &&  lastNameTextField.text?.characters.count > 0){
             print("firstNametrue")
             if (emailTextField.text?.containsString("@") == true && emailTextField.text?.containsString(".") == true){
                 print("email")
                 if (middleInitial.characters.count > 0){
                     
-                    GlobalData.sharedInstance.registerUser(firstNameLabel.text!, lastName: lastNameLabel.text!, middleInitial: middleInitial, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: { Void in
+                    GlobalData.sharedInstance.registerUser(firstNameTextField.text!, lastName: lastNameTextField.text!, middleInitial: middleInitial, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: { Void in
                         
                         print("Successs!DF(D*#(*($*")
                     })
                 } else {
-                    GlobalData.sharedInstance.registerUser(firstNameLabel.text!, lastName: lastNameLabel.text!, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: { Void in
+                    GlobalData.sharedInstance.registerUser(firstNameTextField.text!, lastName: lastNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: { Void in
                         })
                 }
             } else {
