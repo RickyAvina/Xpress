@@ -30,17 +30,17 @@ class GlobalData {
         userQuery.execInBackground{(responseType: ResponseType, result: QueryResult!, error: NSError!) -> Void in
             if (error == nil){
                 print("Query executed successfully")
-                let emails : [String] = result!.getResult() as![String]
+               // let emails : [String] = result!.getResult() as![String]
                 
                 let user = UserClass.object()
                 
-                for i in 0 ..< emails.count{
+               /* for i in 0 ..< emails.count{
                     if (emails[i] == email){
                         print("ACCOUNT WITH EMAIL ALREADY EXISTS")
                         break
                     }
                     
-                }
+                }*/
                 
                 user["firstname"] = firstName
                 user["lastname"] = lastName
@@ -69,17 +69,17 @@ class GlobalData {
             userQuery.execInBackground{(responseType: ResponseType, result: QueryResult!, error: NSError!) -> Void in
                 if (error == nil){
                     print("Query executed successfully")
-                    let emails : [String] = result!.getResult() as![String]
+                  //  let emails : [String] = result!.getResult() as![String]
                     
                     let user = UserClass.object()
                     
-                    for i in 0 ..< emails.count{
-                        if (emails[i] == email){
-                            print("ACCOUNT WITH EMAIL ALREADY EXISTS")
-                            break
-                        }
-                        
-                    }
+                  //  for i in 0 ..< emails.count{
+                    //    if (emails[i] == email){
+                       //     print("ACCOUNT WITH EMAIL ALREADY EXISTS")
+                       //     break
+                     //   }
+                  
+                   // }
                     
                     user["firstname"] = firstName
                     user["middleinitial"] = middleInitial
