@@ -57,140 +57,96 @@ class GlobalData {
     
     func registerUser(firstName: String, lastName: String, email: String, password: String, onSuccess: ()->()){
         
-        var emailInUse : Bool?
-        
-        let UserClass = app!.classWithUID("user")
-        let userQuery = UserClass.query()
-        
-        userQuery.execInBackground{(responseType: ResponseType, result: QueryResult!, error: NSError!) -> Void in
-            if (error == nil){
-                print("Query executed successfully")
-                
-                //  let r = (result.getResult()[0])
-                //  let emails = r["email"]! as! String
-                
-                //   print("*******:\(emails)")
-                
-                for i in 0 ..< result.getResult().count{
-                    let r = result.getResult()[i]
-                    let storedEmail = r["email"] as! String
-                    if (email == storedEmail){
-                        emailInUse = true
-                        print("EMAIL ALEREADY IN USE")
-                        self.emailIsInUse = true
-                        break
-                    } else {
-                        emailInUse = false
-                        self.emailIsInUse = false
-                        print("Email not used")
-                    }
-                }
-                
-                if (emailInUse == false){
-                    
-                    
-                    let user = UserClass.object()
-                    
-                    user["firstname"] = firstName
-                    user["lastname"] = lastName
-                    user["email"] = email
-                    user["password"] = password
-                    
-                    user.saveInBackgroundWithCompletion{(repsonseType: ResponseType, error: NSError!) -> Void in
-                        if error == nil{
-                            print("User created successfully!")
-                        } else {
-                            print(error.userInfo)
-                        }
-                    } // end saveInback
-                    
-                } else {
-                    // print("Error in Query: \(error.userInfo)")
-                } // end else
-            }  // end userQuery
+        if let theApp = app {
+            let userObject : BuiltUser = theApp.user()
+            userObject.email = email
+            userObject.password = password
+            userObject.confirmPassword = password
+            userObject.firstName = firstName
+            userObject.lastName = lastName
             
-        } 
-        
-    } // end func
+            userObject.registerUserInBackgroundWithCompletion({ (res, error) -> Void in
+                
+                if (error == nil){
+                    print("Registed")
+                    onSuccess()
+                } else {
+                    print("Registration Failed")
+                    print(error)
+                }
+            })
+        }
+    }
     
     func registerUser(firstName: String, lastName: String, middleInitial: String, email: String, password: String, onSuccess: ()->()){
-        let UserClass = app!.classWithUID("user")
-        let userQuery = UserClass.query()
-        userQuery.whereKeyExists("email")
-        
-        userQuery.execInBackground{(responseType: ResponseType, result: QueryResult!, error: NSError!) -> Void in
-            if (error == nil){
-                print("Query executed successfully")
-                //  let emails : [String] = result!.getResult() as![String]
+        if let theApp = app {
+            let userObject : BuiltUser = theApp.user()
+            userObject.email = email
+            userObject.password = password
+            userObject.confirmPassword = password
+            userObject.firstName = "\(firstName), \(middleInitial)"
+            userObject.lastName = lastName
+            
+            userObject.registerUserInBackgroundWithCompletion({ (res, error) -> Void in
                 
-                let user = UserClass.object()
-                
-                //  for i in 0 ..< emails.count{
-                //    if (emails[i] == email){
-                //     print("ACCOUNT WITH EMAIL ALREADY EXISTS")
-                //     break
-                //   }
-                
-                // }
-                
-                user["firstname"] = firstName
-                user["middleinitial"] = middleInitial
-                user["lastname"] = lastName
-                user["email"] = email
-                user["password"] = password
-                
-                user.saveInBackgroundWithCompletion{(repsonseType: ResponseType, error: NSError!) -> Void in
-                    if error == nil{
-                        print("User created successfully!")
-                    } else {
-                        print(error.userInfo)
-                    }
+                if (error == nil){
+                    print("Registed")
+                    onSuccess()
+                } else {
+                    print("Registration Failed")
+                    print(error)
                 }
+            })
+        }
+    }
+    
+    
+    func loginUser(email email: String, password : String, onSuccess: ()->()){
+        if let theApp = app {
+            let userObject:BuiltUser = theApp.user()
+            userObject.loginInBackgroundWithEmail(email, andPassword: password) {
+                (responseType: ResponseType, error: NSError!) -> Void in
                 
-            } else {
-                print("Error in Query: \(error.userInfo)")
+                if (error == nil){
+                    onSuccess()
+                } else {
+                    print("Error logging in: \(error)")
+                }
             }
         }
     }
     
-    func loginVerified(email email: String, password: String)->Bool{
-        let UserClass = app!.classWithUID("user")
-        let userEmailQuery = UserClass.query()
-        userEmailQuery.whereKeyExists("email")
-        
-        var myBool : Bool?
-        
-        userEmailQuery.execInBackground{(responseType: ResponseType, result: QueryResult!, error: NSError!) -> Void in
-            
-            
-            for i in 0 ..< result.getResult().count{
-                let r = result.getResult()[i]
-                let storedEmail = r["email"] as! String
-                
-                if (email == storedEmail){
-                    let passwordQuery = UserClass.query()
-                    passwordQuery.whereKeyExists("password")
-                    
-                    passwordQuery.execInBackground{(responseType: ResponseType, result: QueryResult!, error: NSError!) -> Void in
-                        let storedPassword = r["password"] as! String
-                        
-                        if (password == storedPassword){
-                            // success
-                            myBool = true
-                        } else {
-                            myBool = false
-                        }
-                    }
-                } else {
-                    myBool = false
-                }
-            }
-        }
-        
-        if (myBool == true){
-            return true
-        } else {
-            return false
-        }
-    }
+    
+//    func loginVerified(email email: String, password: String)->Bool{
+//        let UserClass = app!.classWithUID("user")
+//        let userEmailQuery = UserClass.query()
+//        
+//        var myBool : Bool?
+//        
+//        userEmailQuery.execInBackground{(responseType: ResponseType, result: QueryResult!, error: NSError!) -> Void in
+//            
+//            let res = result.getResult() as! [[String:String]]
+//            
+//            for i in 0..<res.count{
+//                let resul = res[i]
+//                
+//                if (resul["email"] == email){
+//                    if (resul["password"] == password){
+//                        myBool = true
+//                    } else {
+//                        myBool = false
+//                    }
+//                } else {
+//                    myBool = false
+//                }
+//                }
+//            }
+//        
+//        print("myBool: \"myBool)
+//        
+//        return myBool!
+//    }
+//
+
+
 }

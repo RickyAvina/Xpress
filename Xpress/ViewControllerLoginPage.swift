@@ -16,11 +16,17 @@ class ViewControllerLoginPage: UIViewController {
     @IBOutlet var loginButton: UIButton!
     
     @IBAction func login(sender: UIButton) {
-        if (GlobalData.sharedInstance.loginVerified(email: emailTextField.text!, password: passwordTextField.text!) == true){
-            print("LOGIN SUCCEEDED")
-        } else {
-            print ("LOGIN FAILED")
+        GlobalData.sharedInstance.loginUser(email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {[weak self] in
+        
+                self?.performSegueWithIdentifier("loginToMain", sender: nil)
+                print("logged in")
+
+        })
         }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        print((GlobalData.sharedInstance.app?.user().isAuthenticated())!)
+       return (GlobalData.sharedInstance.app?.user().isAuthenticated())!
     }
     
     override func viewDidLoad() {

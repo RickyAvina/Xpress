@@ -20,7 +20,6 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet weak var midleInitialLabel: UILabel!
     @IBOutlet var middleInitialPicker: UIPickerView!
     
-    @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet var lastNameTextField: UITextField!
     
     @IBOutlet var emailTextField: UITextField!
@@ -44,7 +43,6 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
                     GlobalData.sharedInstance.registerUser(firstNameTextField.text!, lastName: lastNameTextField.text!, middleInitial: middleInitial, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: { Void in
                         
                     })
-                    print("ITSRKDFJDKSFJ")
                 } else {
                     GlobalData.sharedInstance.registerUser(firstNameTextField.text!, lastName: lastNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: { Void in
                         
