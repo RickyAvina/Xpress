@@ -11,6 +11,8 @@ import UIKit
 class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var registerLabel: UILabel!
+    @IBOutlet var registerButton: UIButton!
+    @IBOutlet var checkForAvaliabilityButton: UIButton!
     
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet var firstNameTextField: UITextField!
@@ -26,7 +28,7 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
     
     var middleInitialPickerData : [String] = [String]()
     
-    @IBAction func registerUser(sender: UIButton) {
+    @IBAction func checkForAvaliability(sender: UIButton) {
         
         let middleInitial: String = self.pickerView(middleInitialPicker, titleForRow: middleInitialPicker.selectedRowInComponent(0), forComponent: 0)!
         
@@ -34,15 +36,22 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
             print("firstNametrue")
             if (emailTextField.text?.containsString("@") == true && emailTextField.text?.containsString(".") == true){
                 print("email")
+                
+                if (GlobalData.sharedInstance.verifyUser(email: emailTextField.text!) == true){
+                    checkForAvaliabilityButton.hidden = true
+                    registerButton.hidden = false
                 if (middleInitial.characters.count > 0){
-                    
                     GlobalData.sharedInstance.registerUser(firstNameTextField.text!, lastName: lastNameTextField.text!, middleInitial: middleInitial, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: { Void in
                         
-                        print("Successs!DF(D*#(*($*")
                     })
+                    print("ITSRKDFJDKSFJ")
                 } else {
                     GlobalData.sharedInstance.registerUser(firstNameTextField.text!, lastName: lastNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: { Void in
-                        })
+                        
+                    })
+                }
+                } else {
+                    print("Login not verified")
                 }
             } else {
                 print("Enter a valid email")
@@ -50,10 +59,11 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
         } else {
             print("Enter valid First name and last name")
         }
+        
     }
-    
-    
-    
+    @IBAction func registerUser(sender: UIButton) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +71,10 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
         self.middleInitialPicker.delegate = self
         self.middleInitialPicker.dataSource = self
         middleInitialPickerData = ["", "A.", "B.", "C.", "D.", "E.", "F.", "G.", "H.", "I.", "J.", "K.", "L.", "M.", "N.", "O.", "P.", "Q.", "R.", "S.", "T.", "U.", "V.", "W.", "X.", "Y.", "Z."]
+        
+        registerButton.hidden = true
+        checkForAvaliabilityButton.hidden = false
+        
     }
     
     override func didReceiveMemoryWarning() {

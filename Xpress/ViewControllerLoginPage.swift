@@ -10,6 +10,19 @@ import UIKit
 
 class ViewControllerLoginPage: UIViewController {
 
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    
+    @IBOutlet var loginButton: UIButton!
+    
+    @IBAction func login(sender: UIButton) {
+        if (GlobalData.sharedInstance.loginVerified(email: emailTextField.text!, password: passwordTextField.text!) == true){
+            print("LOGIN SUCCEEDED")
+        } else {
+            print ("LOGIN FAILED")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
