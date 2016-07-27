@@ -102,12 +102,14 @@ class GlobalData {
     
     
     func loginUser(email email: String, password : String, onSuccess: ()->()){
-        if let theApp = app {
-            let userObject:BuiltUser = theApp.user()
-            userObject.loginInBackgroundWithEmail(email, andPassword: password) {
+        if app != nil {
+           // let userObject:BuiltUser = theApp.user()
+            app?.user().loginInBackgroundWithEmail(email, andPassword: password) {
                 (responseType: ResponseType, error: NSError!) -> Void in
                 
                 if (error == nil){
+                    self.app?.user().setAsCurrentUser()
+                   // print((GlobalData.sharedInstance.app?.user())!)
                     onSuccess()
                 } else {
                     print("Error logging in: \(error)")

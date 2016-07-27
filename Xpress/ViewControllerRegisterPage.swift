@@ -41,10 +41,25 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
                 if (middleInitial.characters.count > 0){
                     GlobalData.sharedInstance.registerUser(firstNameTextField.text!, lastName: lastNameTextField.text!, middleInitial: middleInitial, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: { Void in
                         
+                        let confirmEmailAddressAlert = UIAlertController(title: "Confirm your email address!", message: "Please confirm your email adress", preferredStyle: UIAlertControllerStyle.Alert)
+                        confirmEmailAddressAlert.addAction(UIAlertAction(title: "Go to Mail App!", style: UIAlertActionStyle.Default, handler: {action in
+                            let mailURL = NSURL(string: "message://")!
+                            
+                            if (UIApplication.sharedApplication().canOpenURL(mailURL)){
+                                UIApplication.sharedApplication().openURL(mailURL)
+                            }
+                        }))
                     })
                 } else {
                     GlobalData.sharedInstance.registerUser(firstNameTextField.text!, lastName: lastNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, onSuccess: { Void in
-                        
+                        let confirmEmailAddressAlert = UIAlertController(title: "Confirm your email address!", message: "Please confirm your email adress", preferredStyle: UIAlertControllerStyle.Alert)
+                        confirmEmailAddressAlert.addAction(UIAlertAction(title: "Go to Mail App!", style: UIAlertActionStyle.Default, handler: {action in
+                            let mailURL = NSURL(string: "message://")!
+                            
+                            if (UIApplication.sharedApplication().canOpenURL(mailURL)){
+                                UIApplication.sharedApplication().openURL(mailURL)
+                            }
+                        }))
                     })
                 }
                 } else {

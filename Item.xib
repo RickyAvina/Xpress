@@ -48,18 +48,26 @@
                             <constraint firstAttribute="width" constant="290" id="8wc-Er-XqE"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WcW-PP-c7j">
+                        <rect key="frame" x="8" y="181" width="71" height="63"/>
+                        <state key="normal" title="Button" image="x.png"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="PXB-wv-njn" firstAttribute="trailing" secondItem="T1T-GP-Jy5" secondAttribute="trailing" id="2Zs-aR-6oZ"/>
                     <constraint firstItem="T1T-GP-Jy5" firstAttribute="leading" secondItem="5ic-eV-2nb" secondAttribute="leading" id="3Ta-rr-v6X"/>
+                    <constraint firstItem="WcW-PP-c7j" firstAttribute="top" secondItem="PXB-wv-njn" secondAttribute="bottom" constant="47" id="424-P5-lLU"/>
                     <constraint firstItem="PXB-wv-njn" firstAttribute="leading" secondItem="RC8-qy-UvN" secondAttribute="leadingMargin" id="46P-gq-JEw"/>
                     <constraint firstItem="5ic-eV-2nb" firstAttribute="top" secondItem="T1T-GP-Jy5" secondAttribute="bottom" constant="8" symbolic="YES" id="7j2-DZ-PFF"/>
                     <constraint firstItem="lJx-Zz-cDy" firstAttribute="centerX" secondItem="T1T-GP-Jy5" secondAttribute="centerX" id="Cky-Hw-h2k"/>
+                    <constraint firstItem="lJx-Zz-cDy" firstAttribute="leading" secondItem="WcW-PP-c7j" secondAttribute="trailing" constant="49" id="E04-rT-jg2"/>
                     <constraint firstItem="PXB-wv-njn" firstAttribute="top" secondItem="RC8-qy-UvN" secondAttribute="topMargin" id="KRh-qb-waU"/>
                     <constraint firstItem="PXB-wv-njn" firstAttribute="leading" secondItem="T1T-GP-Jy5" secondAttribute="leading" id="Nfp-u0-aPC"/>
                     <constraint firstItem="T1T-GP-Jy5" firstAttribute="top" secondItem="lJx-Zz-cDy" secondAttribute="bottom" constant="8" symbolic="YES" id="bf1-rq-epg"/>
                     <constraint firstItem="5ic-eV-2nb" firstAttribute="bottom" secondItem="RC8-qy-UvN" secondAttribute="bottomMargin" id="iix-UZ-Ddb"/>
                     <constraint firstItem="T1T-GP-Jy5" firstAttribute="trailing" secondItem="5ic-eV-2nb" secondAttribute="trailing" id="jjj-p8-nEI"/>
+                    <constraint firstItem="WcW-PP-c7j" firstAttribute="leading" secondItem="T1T-GP-Jy5" secondAttribute="leading" id="mc0-pe-wZH"/>
+                    <constraint firstItem="WcW-PP-c7j" firstAttribute="centerY" secondItem="lJx-Zz-cDy" secondAttribute="centerY" id="sAB-vX-7hh"/>
                     <constraint firstItem="PXB-wv-njn" firstAttribute="trailing" secondItem="RC8-qy-UvN" secondAttribute="trailingMargin" id="sZA-N6-NQC"/>
                     <constraint firstItem="lJx-Zz-cDy" firstAttribute="top" secondItem="PXB-wv-njn" secondAttribute="bottom" constant="8" symbolic="YES" id="xeG-dv-pa9"/>
                 </constraints>
@@ -73,4 +81,7 @@
             <point key="canvasLocation" x="143.5" y="36"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="x.png" width="128" height="128"/>
+    </resources>
 </document>
