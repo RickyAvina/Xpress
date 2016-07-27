@@ -14,7 +14,6 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
     @IBOutlet var registerButton: UIButton!
     @IBOutlet var checkForAvaliabilityButton: UIButton!
     
-    @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet var firstNameTextField: UITextField!
     
     @IBOutlet weak var midleInitialLabel: UILabel!

@@ -16,21 +16,22 @@ class ViewControllerLoginPage: UIViewController {
     @IBOutlet var loginButton: UIButton!
     
     @IBAction func login(sender: UIButton) {
-        GlobalData.sharedInstance.loginUser(email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {[weak self] in
         
-                self?.performSegueWithIdentifier("loginToMain", sender: nil)
-                print("logged in")
-
-        })
-        }
+        GlobalData.sharedInstance.loginUser(email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {[weak self] in
+            self?.performSegueWithIdentifier("loginToMain", sender: nil)
+                print("Logged in!")
+                print("Is Authenticated: \((GlobalData.sharedInstance.app?.user().isAuthenticated())!)")
+            })
+    }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+   /* override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         print((GlobalData.sharedInstance.app?.user().isAuthenticated())!)
        return (GlobalData.sharedInstance.app?.user().isAuthenticated())!
-    }
+    } */
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "market.jpeg")!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,6 +41,11 @@ class ViewControllerLoginPage: UIViewController {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         // called when the user click on the view
         self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
 }

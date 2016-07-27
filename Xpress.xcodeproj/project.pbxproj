@@ -51,6 +51,7 @@
 		949FFBFA1D45E73600119162 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBF91D45E73600119162 /* Security.framework */; };
 		949FFBFC1D45E74100119162 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBFB1D45E74100119162 /* libicucore.tbd */; };
 		949FFBFE1D45E74900119162 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBFD1D45E74900119162 /* libsqlite3.tbd */; };
+		94EB68611D481D2200FEC971 /* market.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 94EB68601D481D2200FEC971 /* market.jpeg */; };
 		94F7513A1D41BB3300413DDA /* +UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F751391D41BB3300413DDA /* +UIView.swift */; };
 		94F7513C1D41BFE100413DDA /* +NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */; };
 /* End PBXBuildFile section */
@@ -137,6 +138,7 @@
 		949FFBF91D45E73600119162 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		949FFBFB1D45E74100119162 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		949FFBFD1D45E74900119162 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		94EB68601D481D2200FEC971 /* market.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = market.jpeg; sourceTree = "<group>"; };
 		94F751391D41BB3300413DDA /* +UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+UIView.swift"; sourceTree = "<group>"; };
 		94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+NSUserDefaults.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,6 +233,7 @@
 		943D06741D3B25A800730F39 = {
 			isa = PBXGroup;
 			children = (
+				94EB685E1D481CA300FEC971 /* Images */,
 				943D067F1D3B25A800730F39 /* Xpress */,
 				943D06971D3B25A900730F39 /* XpressTests */,
 				943D06A21D3B25A900730F39 /* XpressUITests */,
@@ -290,6 +293,15 @@
 				943D06A51D3B25A900730F39 /* Info.plist */,
 			);
 			path = XpressUITests;
+			sourceTree = "<group>";
+		};
+		94EB685E1D481CA300FEC971 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				94EB68601D481D2200FEC971 /* market.jpeg */,
+			);
+			name = Images;
+			path = Xpress;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,6 +415,7 @@
 				949FFBEB1D45E6CA00119162 /* BuiltIO.bundle in Resources */,
 				944004161D40134D0000098F /* Item.xib in Resources */,
 				943D068E1D3B25A800730F39 /* LaunchScreen.storyboard in Resources */,
+				94EB68611D481D2200FEC971 /* market.jpeg in Resources */,
 				943D068B1D3B25A800730F39 /* Assets.xcassets in Resources */,
 				943D06861D3B25A800730F39 /* Main.storyboard in Resources */,
 			);

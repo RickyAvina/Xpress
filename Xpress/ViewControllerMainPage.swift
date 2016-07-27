@@ -15,11 +15,10 @@ class ViewControllerMainPage: UIViewController{
     @IBOutlet var accountLabel: UILabel!
     @IBOutlet var registerButton: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (GlobalData.isFirstLaunch){
+        if (GlobalData.isFirstLaunch || GlobalData.sharedInstance.app?.user().isAuthenticated() == true){
             loginButton.hidden = true
             accountLabel.hidden = true
             registerButton.hidden = true
