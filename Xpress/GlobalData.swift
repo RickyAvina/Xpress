@@ -102,8 +102,8 @@ class GlobalData {
     
     
     func loginUser(email email: String, password : String, onSuccess: ()->()){
-        if app != nil {
-           // let userObject:BuiltUser = theApp.user()
+        if let theApp = app {
+            let userObject:BuiltUser = theApp.user()
             app?.user().loginInBackgroundWithEmail(email, andPassword: password) {
                 (responseType: ResponseType, error: NSError!) -> Void in
                 
