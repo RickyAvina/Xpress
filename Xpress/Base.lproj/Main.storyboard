@@ -82,7 +82,7 @@
                                 <rect key="frame" x="20" y="33" width="34" height="30"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="sql-6m-YJN" kind="show" id="hbZ-Ic-29g"/>
+                                    <segue destination="sql-6m-YJN" kind="show" identifier="backToMain" id="hbZ-Ic-29g"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -554,6 +554,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="n2z-0q-JIu"/>
-        <segue reference="6ZA-NA-5tE"/>
+        <segue reference="hbZ-Ic-29g"/>
     </inferredMetricsTieBreakers>
 </document>

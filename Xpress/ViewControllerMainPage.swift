@@ -18,7 +18,7 @@ class ViewControllerMainPage: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (GlobalData.isFirstLaunch || GlobalData.sharedInstance.app!.user().isAuthenticated() == true){
+        if (GlobalData.isFirstLaunch || (GlobalData.sharedInstance.builtUser?.isAuthenticated())! == true){
             loginButton.hidden = true
             accountLabel.hidden = true
             registerButton.hidden = true

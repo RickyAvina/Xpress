@@ -122,37 +122,4 @@ class GlobalData {
       //  }
     }
     
-    
-//    func loginVerified(email email: String, password: String)->Bool{
-//        let UserClass = app!.classWithUID("user")
-//        let userEmailQuery = UserClass.query()
-//        
-//        var myBool : Bool?
-//        
-//        userEmailQuery.execInBackground{(responseType: ResponseType, result: QueryResult!, error: NSError!) -> Void in
-//            
-//            let res = result.getResult() as! [[String:String]]
-//            
-//            for i in 0..<res.count{
-//                let resul = res[i]
-//                
-//                if (resul["email"] == email){
-//                    if (resul["password"] == password){
-//                        myBool = true
-//                    } else {
-//                        myBool = false
-//                    }
-//                } else {
-//                    myBool = false
-//                }
-//                }
-//            }
-//        
-//        print("myBool: \"myBool)
-//        
-//        return myBool!
-//    }
-//
-
-
 }
