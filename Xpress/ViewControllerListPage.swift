@@ -9,7 +9,7 @@
 import UIKit
 import PassKit
 
-class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableViewDataSource, PKPaymentAuthorizationViewControllerDelegate  {
     
     @IBOutlet var listTableView: UITableView!
     @IBOutlet var totalAmountLabel: UILabel!
@@ -19,6 +19,18 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
     
     let SupportedPaymentNetworks = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex] // supported payment types
     let ApplePayXpressMerchantID = "merchant.com.rickyavina.Xpress"
+    
+    // gives the user authorization to purchase
+    func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: ((PKPaymentAuthorizationStatus) -> Void)){
+        completion(PKPaymentAuthorizationStatus.Success)
+        
+        // send info to backend to procces
+    }
+    
+    // called when payment completes
+    func paymentAuthorizationViewControllerDidFinish(controller: PKPaymentAuthorizationViewController) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +77,8 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
             ]
             
             let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
+            applePayController.delegate = self
+            
             self.presentViewController(applePayController, animated: true, completion: nil)
         }
 
