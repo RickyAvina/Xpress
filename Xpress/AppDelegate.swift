@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         UIApplication.sharedApplication().statusBarHidden = true
         GlobalData.sharedInstance.initialize()
         
+        
         return true
     }
     

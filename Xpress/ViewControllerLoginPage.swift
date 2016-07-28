@@ -17,11 +17,10 @@ class ViewControllerLoginPage: UIViewController {
     
     @IBAction func login(sender: UIButton) {
         
-        GlobalData.sharedInstance.loginUser(email: emailTextField.text!, password: passwordTextField.text!, onSuccess: {[weak self] in
-            
+        GlobalData.sharedInstance.loginUser(emailTextField.text!, password: passwordTextField.text!, onSuccess: {[weak self] in
             self?.performSegueWithIdentifier("loginToMain", sender: nil)
             print("logged in")
-            print("Authenticated: \(GlobalData.sharedInstance.app?.user().isAuthenticated())")
+            print("Authenticated: \(GlobalData.sharedInstance.builtUser?.isAuthenticated())")
             
             })
     }

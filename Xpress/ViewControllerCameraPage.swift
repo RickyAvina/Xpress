@@ -119,16 +119,19 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
                     
                     let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
                     
-                    let name = (json!["name"] as! String)
                     
-                    var tempData = [String:Any]() // creates a temporary array for the item info
-                    tempData["name"] = name
-                    tempData["price"] = 1.25
-                    tempData["upcCode"] = code.data
-                    
-                    print(tempData)
-                    GlobalData.items.append(tempData)
-                    
+                        let name = (json!["name"] as? String)
+                        
+                        var tempData = [String:Any]() // creates a temporary array for the item info
+                        tempData["name"] = name
+                        tempData["price"] = 1.25
+                        tempData["upcCode"] = code.data
+                        
+                        print(tempData)
+                        GlobalData.items.append(tempData)
+                        
+                
+                
                 }catch {
                     print("Error with Json: \(error)")
                 }
@@ -143,9 +146,19 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
             }
         }
         
+        dispatch_async(dispatch_get_main_queue()) {
+        let myAlert = UIAlertView()
+        myAlert.title = "Successfully Scanned"
+        myAlert.message = code.data
+        myAlert.addButtonWithTitle("Ok")
+        myAlert.delegate = self
+        myAlert.show()
+        
+        
             self.performSegueWithIdentifier("goBackToMainPage", sender: nil)
+        }
 
-            
+        
            // print("scanned: \(code.symbology), barcode: \(code.data)")
         
     }
