@@ -141,6 +141,7 @@
 		949FFBFD1D45E74900119162 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		94EB68601D481D2200FEC971 /* market.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = market.jpeg; sourceTree = "<group>"; };
 		94EB68621D486A3D00FEC971 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
+		94EB68641D49114F00FEC971 /* Xpress.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Xpress.entitlements; sourceTree = "<group>"; };
 		94F751391D41BB3300413DDA /* +UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+UIView.swift"; sourceTree = "<group>"; };
 		94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+NSUserDefaults.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -257,6 +258,7 @@
 		943D067F1D3B25A800730F39 /* Xpress */ = {
 			isa = PBXGroup;
 			children = (
+				94EB68641D49114F00FEC971 /* Xpress.entitlements */,
 				9437F0C31D43279D00E1D257 /* BridgeHeader.h */,
 				943D06801D3B25A800730F39 /* AppDelegate.swift */,
 				943D06821D3B25A800730F39 /* ViewController.swift */,
@@ -376,7 +378,12 @@
 				TargetAttributes = {
 					943D067C1D3B25A800730F39 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 6NEUAR985J;
+						DevelopmentTeam = KYVYVR927G;
+						SystemCapabilities = {
+							com.apple.OMC = {
+								enabled = 1;
+							};
+						};
 					};
 					943D06931D3B25A900730F39 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -601,16 +608,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Xpress/Xpress.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Xpress/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = RickyAvina.Xpress;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rickyavina.Xpress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Xpress//BridgeHeader.h";
 				VALID_ARCHS = "arm64 armv7 armv7s i386";
@@ -621,16 +631,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Xpress/Xpress.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Xpress/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = RickyAvina.Xpress;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rickyavina.Xpress;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Xpress//BridgeHeader.h";
 				VALID_ARCHS = "arm64 armv7 armv7s i386";

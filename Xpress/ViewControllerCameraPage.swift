@@ -123,7 +123,7 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
                     
                     var tempData = [String:Any]() // creates a temporary array for the item info
                     tempData["name"] = name
-                    tempData["price"] = "$1.25"
+                    tempData["price"] = 1.25
                     tempData["upcCode"] = code.data
                     
                     print(tempData)

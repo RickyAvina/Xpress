@@ -188,69 +188,74 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FoD-Ih-8Fg">
                                 <rect key="frame" x="255" y="20" width="91" height="33"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="91" id="1Zh-LX-CSX"/>
+                                    <constraint firstAttribute="width" constant="91" id="fpo-YL-uBm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7C-Kj-xkb">
-                                <rect key="frame" x="193" y="532" width="214" height="30"/>
-                                <state key="normal" title="Review Credit Card Information"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLV-Ed-CAS">
                                 <rect key="frame" x="233" y="562" width="134" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="134" id="2ya-UF-yii"/>
+                                    <constraint firstAttribute="width" constant="134" id="ltR-MT-QY4"/>
                                 </constraints>
                                 <state key="normal" title="Checkout"/>
                                 <connections>
-                                    <segue destination="Iie-CS-Hno" kind="show" id="QBJ-io-nXf"/>
+                                    <action selector="checkout:" destination="GlU-xh-W8l" eventType="touchUpInside" id="Gdf-33-j23"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IP8-21-9ha">
+                                <rect key="frame" x="518" y="536" width="38" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqL-R1-vyN">
+                                <rect key="frame" x="494" y="566" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7C-Kj-xkb">
+                                <rect key="frame" x="132" y="536" width="214" height="30"/>
+                                <state key="normal" title="Review Credit Card Information"/>
+                                <connections>
+                                    <action selector="addCreditCard:" destination="GlU-xh-W8l" eventType="touchUpInside" id="3LO-Xk-CdU"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="FoD-Ih-8Fg" firstAttribute="centerX" secondItem="pqK-rj-Bt2" secondAttribute="centerX" id="5J8-Xc-k07"/>
-                            <constraint firstItem="fzW-ji-TIY" firstAttribute="leading" secondItem="4qx-2i-KU2" secondAttribute="leadingMargin" constant="6" id="95t-JL-dfy"/>
-                            <constraint firstItem="VLV-Ed-CAS" firstAttribute="top" secondItem="x7C-Kj-xkb" secondAttribute="bottom" id="KGH-J9-nf6"/>
-                            <constraint firstItem="pqK-rj-Bt2" firstAttribute="leading" secondItem="4qx-2i-KU2" secondAttribute="leading" id="Tp7-Fv-Pb7"/>
-                            <constraint firstItem="x7C-Kj-xkb" firstAttribute="centerX" secondItem="VLV-Ed-CAS" secondAttribute="centerX" id="VP7-T3-oTy"/>
-                            <constraint firstItem="Fjh-NX-XZD" firstAttribute="top" secondItem="VLV-Ed-CAS" secondAttribute="bottom" constant="8" symbolic="YES" id="YPq-Gd-HV0"/>
-                            <constraint firstItem="fzW-ji-TIY" firstAttribute="top" secondItem="FoD-Ih-8Fg" secondAttribute="top" id="aKX-f6-qgS"/>
-                            <constraint firstItem="x7C-Kj-xkb" firstAttribute="top" secondItem="pqK-rj-Bt2" secondAttribute="bottom" constant="8" symbolic="YES" id="b62-ZW-Qyu"/>
-                            <constraint firstItem="pqK-rj-Bt2" firstAttribute="top" secondItem="FoD-Ih-8Fg" secondAttribute="bottom" constant="5" id="cvd-L7-ggm"/>
-                            <constraint firstItem="pqK-rj-Bt2" firstAttribute="top" secondItem="fzW-ji-TIY" secondAttribute="bottom" constant="8" symbolic="YES" id="eVe-Qg-Jfd"/>
-                            <constraint firstItem="pqK-rj-Bt2" firstAttribute="centerX" secondItem="x7C-Kj-xkb" secondAttribute="centerX" id="qKp-OW-xgZ"/>
-                            <constraint firstItem="fzW-ji-TIY" firstAttribute="top" secondItem="2Xg-Mb-pEf" secondAttribute="bottom" id="uuA-EO-hJT"/>
-                            <constraint firstAttribute="trailing" secondItem="pqK-rj-Bt2" secondAttribute="trailing" id="za7-Lk-Q5M"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IP8-21-9ha" secondAttribute="trailing" constant="24" id="1MU-QN-KW7"/>
+                            <constraint firstItem="x7C-Kj-xkb" firstAttribute="top" secondItem="pqK-rj-Bt2" secondAttribute="bottom" constant="12" id="1Q2-uu-fwn"/>
+                            <constraint firstItem="x7C-Kj-xkb" firstAttribute="top" secondItem="IP8-21-9ha" secondAttribute="top" id="BEm-mf-kXy"/>
+                            <constraint firstItem="pqK-rj-Bt2" firstAttribute="leading" secondItem="4qx-2i-KU2" secondAttribute="leading" id="Bnd-8A-Y0H"/>
+                            <constraint firstItem="pqK-rj-Bt2" firstAttribute="centerX" secondItem="VLV-Ed-CAS" secondAttribute="centerX" id="Bpk-v2-6qb"/>
+                            <constraint firstItem="Fjh-NX-XZD" firstAttribute="top" secondItem="VLV-Ed-CAS" secondAttribute="bottom" constant="8" symbolic="YES" id="EA1-zZ-Hy4"/>
+                            <constraint firstItem="VLV-Ed-CAS" firstAttribute="baseline" secondItem="eqL-R1-vyN" secondAttribute="baseline" id="KEC-ae-m8U"/>
+                            <constraint firstItem="pqK-rj-Bt2" firstAttribute="top" secondItem="fzW-ji-TIY" secondAttribute="bottom" constant="8" symbolic="YES" id="Nbm-Wz-Iev"/>
+                            <constraint firstItem="fzW-ji-TIY" firstAttribute="top" secondItem="2Xg-Mb-pEf" secondAttribute="bottom" id="Org-Fm-pnK"/>
+                            <constraint firstAttribute="trailing" secondItem="pqK-rj-Bt2" secondAttribute="trailing" id="acA-bZ-Nwb"/>
+                            <constraint firstItem="fzW-ji-TIY" firstAttribute="leading" secondItem="4qx-2i-KU2" secondAttribute="leadingMargin" constant="6" id="g36-kO-E5o"/>
+                            <constraint firstItem="fzW-ji-TIY" firstAttribute="top" secondItem="FoD-Ih-8Fg" secondAttribute="top" id="k6Z-HR-QoM"/>
+                            <constraint firstItem="eqL-R1-vyN" firstAttribute="trailing" secondItem="4qx-2i-KU2" secondAttribute="trailingMargin" id="liT-Ca-3RD"/>
+                            <constraint firstItem="eqL-R1-vyN" firstAttribute="top" secondItem="IP8-21-9ha" secondAttribute="bottom" constant="9" id="mxN-sh-c5O"/>
+                            <constraint firstItem="pqK-rj-Bt2" firstAttribute="top" secondItem="FoD-Ih-8Fg" secondAttribute="bottom" constant="5" id="n8p-te-0ar"/>
+                            <constraint firstItem="FoD-Ih-8Fg" firstAttribute="trailing" secondItem="x7C-Kj-xkb" secondAttribute="trailing" id="o7O-zZ-2vu"/>
+                            <constraint firstItem="IP8-21-9ha" firstAttribute="centerX" secondItem="eqL-R1-vyN" secondAttribute="centerX" id="tcc-rb-nta"/>
+                            <constraint firstItem="FoD-Ih-8Fg" firstAttribute="centerX" secondItem="pqK-rj-Bt2" secondAttribute="centerX" id="yfs-bC-D5c"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="checkoutLabel" destination="VLV-Ed-CAS" id="I1G-cg-ZQH"/>
                         <outlet property="listTableView" destination="pqK-rj-Bt2" id="YWX-Bb-qUD"/>
+                        <outlet property="reviewCreditCardInformationLabel" destination="x7C-Kj-xkb" id="0NC-vo-Tr6"/>
+                        <outlet property="totalAmountLabel" destination="eqL-R1-vyN" id="LSZ-5U-jxg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4T-JF-dkS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1959" y="610"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="u5c-am-ENh">
-            <objects>
-                <viewController id="Iie-CS-Hno" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uJN-A7-jKc"/>
-                        <viewControllerLayoutGuide type="bottom" id="ccf-qy-S4u"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="F3a-Oa-99g">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pEj-Q0-II1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1965" y="1392"/>
         </scene>
         <!--View Controller Main Page-->
         <scene sceneID="V6U-4K-L8q">
@@ -549,6 +554,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="n2z-0q-JIu"/>
-        <segue reference="6i6-xh-nqo"/>
+        <segue reference="6ZA-NA-5tE"/>
     </inferredMetricsTieBreakers>
 </document>
