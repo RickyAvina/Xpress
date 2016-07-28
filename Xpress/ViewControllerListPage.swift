@@ -17,6 +17,8 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var reviewCreditCardInformationLabel: UIButton!
     @IBOutlet var checkoutLabel: UIButton!
     
+    var lib: PKPassLibrary?
+    
     let SupportedPaymentNetworks = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex] // supported payment types
     let ApplePayXpressMerchantID = "merchant.com.rickyavina.Xpress"
     
@@ -36,6 +38,7 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         listTableView.delegate = self
         listTableView.dataSource = self
+        lib = PKPassLibrary()
         
         listTableView.registerNib(UINib(nibName: "Item", bundle: nil), forCellReuseIdentifier: "itemID")
         
@@ -57,13 +60,20 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func addCreditCard(sender: UIButton) {
         
+        lib!.openPaymentSetup()
     }
     
     
     @IBAction func checkout(sender: UIButton) {
-        
+        if (PKPassLibrary.isPassLibraryAvailable()){
         if (PKPaymentAuthorizationViewController.canMakePaymentsUsingNetworks(SupportedPaymentNetworks) == false){
             // credit card not added
+            let alert = UIAlertController(title: "No payment information!", message:"Please enter a valid credit card", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in
+                self.lib!.openPaymentSetup()
+                })
+            self.presentViewController(alert, animated: true){}
+            print("Payment not authorized")
         } else {
             let request = PKPaymentRequest()
             request.merchantIdentifier = ApplePayXpressMerchantID
@@ -80,6 +90,7 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
             applePayController.delegate = self
             
             self.presentViewController(applePayController, animated: true, completion: nil)
+        }
         }
 
     }
@@ -129,10 +140,20 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
             
     }
     
+    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        let HeightOfCellCreatedInXIBFILE : CGFloat = 400
+        let HeightOfCellCreatedInXIBFILE : CGFloat = 200
         
         return HeightOfCellCreatedInXIBFILE
+    }
+    
+     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            GlobalData.items.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
     }
 }
