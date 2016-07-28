@@ -66,7 +66,7 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
             
             let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
             self.presentViewController(applePayController, animated: true, completion: nil)
-       // }
+        }
 
     }
     
