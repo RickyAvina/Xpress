@@ -14,7 +14,6 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet var listTableView: UITableView!
     @IBOutlet var totalAmountLabel: UILabel!
     
-    @IBOutlet var reviewCreditCardInformationLabel: UIButton!
     @IBOutlet var checkoutLabel: UIButton!
     
     var lib: PKPassLibrary?
@@ -46,7 +45,6 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
             UIAlertController(title: "Device not compliable with apple pay", message: "Please use a device that supports Apple Pay", preferredStyle: UIAlertControllerStyle.Alert)
             // dont display Apple pay stuff
             checkoutLabel.hidden = true
-            reviewCreditCardInformationLabel.hidden = true
         }
         
         var total : Double = 0
@@ -55,11 +53,17 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
             total += GlobalData.items[i]["price"] as! Double
         }
         
-        totalAmountLabel.text = "$\(total)"
+        var totalText = "\(total)"
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        formatter.locale = NSLocale(localeIdentifier: "en_US")
+        let numberFromField = (NSString(string: totalText).doubleValue)
+        totalText = formatter.stringFromNumber(numberFromField)!
+        
+        totalAmountLabel.text = totalText
     }
     
     @IBAction func addCreditCard(sender: UIButton) {
-        
         lib!.openPaymentSetup()
     }
     

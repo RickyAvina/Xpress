@@ -17,26 +17,16 @@ class ViewControllerLoginPage: UIViewController {
     
     @IBAction func login(sender: UIButton) {
         
-        GlobalData.sharedInstance.loginUser(emailTextField.text!, password: passwordTextField.text!, onSuccess: {[weak self] in
-            
-//            if ((GlobalData.sharedInstance.builtUser?.isAuthenticated())! == true){
-//                print("Authenticated: \((GlobalData.sharedInstance.builtUser?.isAuthenticated())!)")
-//                print("User's email address: \(GlobalData.sharedInstance.builtUser?.email)")
-//                    
-//                self?.performSegueWithIdentifier("loginToMain", sender: nil)
-//                print("logged in")
-//            } else {
-//                print("NOT AUTHENTICATED")
-//            }
-//            
+    GlobalData.sharedInstance.loginUser(emailTextField.text!, password: passwordTextField.text!, onSuccess: {[weak self] in
+            print("IsAuthenticated login screen: \((GlobalData.sharedInstance.app?.user().isAuthenticated())!)")
           })
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+   /* override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         
-        //print((GlobalData.sharedInstance.app?.user().isAuthenticated())!)
         
-        if ((GlobalData.sharedInstance.builtUser?.isAuthenticated())! == true){
+       
+        if ((GlobalData.sharedInstance.app?.user().isAuthenticated())! == true){
             if (identifier == "loginToMain"){
                 return true
             }
@@ -48,7 +38,7 @@ class ViewControllerLoginPage: UIViewController {
         
         return false
            // return (GlobalData.sharedInstance.app?.user().isAuthenticated())!
-    }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()

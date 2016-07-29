@@ -104,22 +104,22 @@ class GlobalData {
     
     
     func loginUser(email: String, password : String, onSuccess: ()->()){
-     //   if let theApp = app {
-          //  let userObject:BuiltUser = theApp.user()
-            builtUser!.loginInBackgroundWithEmail(email, andPassword: password) {
+       if let theApp = app {
+            let userObject:BuiltUser = theApp.user()
+            userObject.loginInBackgroundWithEmail(email, andPassword: password) {
                 (responseType: ResponseType, error: NSError!) -> Void in
                 
                 if (error == nil){
-                    self.builtUser!.setAsCurrentUser()
-                   // GlobalData.sharedInstance.app
-                    print("Authtoken: \(self.builtUser!.authtoken)")
-                   // print((GlobalData.sharedInstance.app?.user())!)
+                    userObject.setAsCurrentUser()
+                    print("User: \(GlobalData.sharedInstance.app?.user())")
+                    print("Authtoken: \(userObject.authtoken)")
+                    print("IsAuthenticated: \(GlobalData.sharedInstance.app?.user().isAuthenticated())")
                     onSuccess()
                 } else {
                     print("Error logging in: \(error)")
                 }
             }
-      //  }
+        }
     }
     
 }

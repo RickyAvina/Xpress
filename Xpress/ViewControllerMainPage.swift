@@ -11,21 +11,18 @@ import Foundation
 
 class ViewControllerMainPage: UIViewController{
     
-    @IBOutlet var loginButton: UIButton!
-    @IBOutlet var accountLabel: UILabel!
-    @IBOutlet var registerButton: UIButton!
+    @IBOutlet var emailLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (GlobalData.isFirstLaunch || (GlobalData.sharedInstance.builtUser?.isAuthenticated())! == true){
-            loginButton.hidden = true
-            accountLabel.hidden = true
-            registerButton.hidden = true
+        if (GlobalData.isFirstLaunch || (GlobalData.sharedInstance.app?.user().isAuthenticated())! == true){
+        }
+        
+        if (GlobalData.sharedInstance.app?.user().email != nil){
+            emailLabel.text = GlobalData.sharedInstance.app?.user().email
         } else {
-            loginButton.hidden = false
-            accountLabel.hidden = false
-            registerButton.hidden = false
+            emailLabel.text = "Guest"
         }
     }
     
