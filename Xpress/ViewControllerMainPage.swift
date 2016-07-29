@@ -16,7 +16,7 @@ class ViewControllerMainPage: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if (GlobalData.isFirstLaunch || (GlobalData.sharedInstance.app?.user().isAuthenticated())! == true){
+        if (GlobalData.isFirstLaunch || (GlobalData.sharedInstance.app?.user().isAuthenticated()) == true){
         }
         
         if (GlobalData.sharedInstance.app?.user().email != nil){

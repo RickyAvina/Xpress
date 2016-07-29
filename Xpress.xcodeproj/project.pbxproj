@@ -39,6 +39,8 @@
 		9440040C1D3F45B50000098F /* ViewControllerCameraPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9440040B1D3F45B50000098F /* ViewControllerCameraPage.swift */; };
 		944004101D400FDC0000098F /* ViewControllerListPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9440040F1D400FDC0000098F /* ViewControllerListPage.swift */; };
 		944004141D4012EF0000098F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944004131D4012EF0000098F /* Item.swift */; };
+		948E9F111D4AEB6B0043000C /* ViewControllerPopupPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948E9F101D4AEB6B0043000C /* ViewControllerPopupPage.swift */; };
+		948E9F131D4B1A960043000C /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 948E9F121D4B1A960043000C /* PassKit.framework */; };
 		949FFBEB1D45E6CA00119162 /* BuiltIO.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 949FFBE91D45E6CA00119162 /* BuiltIO.bundle */; };
 		949FFBEC1D45E6CA00119162 /* BuiltIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBEA1D45E6CA00119162 /* BuiltIO.framework */; };
 		949FFBEE1D45E70E00119162 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBED1D45E70E00119162 /* Accounts.framework */; };
@@ -128,6 +130,8 @@
 		9440040B1D3F45B50000098F /* ViewControllerCameraPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerCameraPage.swift; sourceTree = "<group>"; };
 		9440040F1D400FDC0000098F /* ViewControllerListPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerListPage.swift; sourceTree = "<group>"; };
 		944004131D4012EF0000098F /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		948E9F101D4AEB6B0043000C /* ViewControllerPopupPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPopupPage.swift; sourceTree = "<group>"; };
+		948E9F121D4B1A960043000C /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		949FFBE91D45E6CA00119162 /* BuiltIO.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BuiltIO.bundle; sourceTree = "<group>"; };
 		949FFBEA1D45E6CA00119162 /* BuiltIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuiltIO.framework; sourceTree = "<group>"; };
 		949FFBED1D45E70E00119162 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
@@ -173,6 +177,7 @@
 				9437F0D31D4329A100E1D257 /* UIKit.framework in Frameworks */,
 				9437F0D11D43299B00E1D257 /* CoreVideo.framework in Frameworks */,
 				9437F0CF1D43299600E1D257 /* MessageUI.framework in Frameworks */,
+				948E9F131D4B1A960043000C /* PassKit.framework in Frameworks */,
 				9437F0E51D432A2500E1D257 /* ScanditBarcodeScanner.framework in Frameworks */,
 				9437F0CD1D43299100E1D257 /* OpenGLES.framework in Frameworks */,
 				949FFBEC1D45E6CA00119162 /* BuiltIO.framework in Frameworks */,
@@ -203,6 +208,7 @@
 		71CB0D8797E3152F7ACCEDC5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				948E9F121D4B1A960043000C /* PassKit.framework */,
 				949FFBFD1D45E74900119162 /* libsqlite3.tbd */,
 				949FFBFB1D45E74100119162 /* libicucore.tbd */,
 				949FFBF91D45E73600119162 /* Security.framework */,
@@ -271,6 +277,7 @@
 				94F751391D41BB3300413DDA /* +UIView.swift */,
 				944004031D3D90D70000098F /* ViewControllerMainPage.swift */,
 				9440040F1D400FDC0000098F /* ViewControllerListPage.swift */,
+				948E9F101D4AEB6B0043000C /* ViewControllerPopupPage.swift */,
 				944004091D3F3B540000098F /* GlobalData.swift */,
 				94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */,
 				944004051D3EB7690000098F /* ViewControllerLoginPage.swift */,
@@ -386,6 +393,9 @@
 							com.apple.OMC = {
 								enabled = 1;
 							};
+							com.apple.Wallet = {
+								enabled = 1;
+							};
 						};
 					};
 					943D06931D3B25A900730F39 = {
@@ -465,6 +475,7 @@
 				944004101D400FDC0000098F /* ViewControllerListPage.swift in Sources */,
 				943D06811D3B25A800730F39 /* AppDelegate.swift in Sources */,
 				944004061D3EB7690000098F /* ViewControllerLoginPage.swift in Sources */,
+				948E9F111D4AEB6B0043000C /* ViewControllerPopupPage.swift in Sources */,
 				9440040C1D3F45B50000098F /* ViewControllerCameraPage.swift in Sources */,
 				9440040A1D3F3B540000098F /* GlobalData.swift in Sources */,
 				94F7513A1D41BB3300413DDA /* +UIView.swift in Sources */,

@@ -6,7 +6,6 @@
 //  Copyright © 2016 RickyAvina. All rights reserved.
 //
 
-let kScanditBarcodeScannerAppKey = "q4YgiXSc4zgrw4+3Scc8jitrFgQz+jvOY1ShlAnbfdI";
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -16,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     func application(application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        let kScanditBarcodeScannerAppKey = "q4YgiXSc4zgrw4+3Scc8jitrFgQz+jvOY1ShlAnbfdI";
         SBSLicense.setAppKey(kScanditBarcodeScannerAppKey);
+               
         UIApplication.sharedApplication().statusBarHidden = true
         GlobalData.sharedInstance.initialize()
         

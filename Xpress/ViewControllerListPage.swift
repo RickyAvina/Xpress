@@ -9,14 +9,16 @@
 import UIKit
 import PassKit
 
-class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableViewDataSource, PKPaymentAuthorizationViewControllerDelegate  {
+class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableViewDataSource, PKPaymentAuthorizationViewControllerDelegate, UIPopoverPresentationControllerDelegate  {
     
     @IBOutlet var listTableView: UITableView!
     @IBOutlet var totalAmountLabel: UILabel!
     
     @IBOutlet var checkoutLabel: UIButton!
+    var totalPrice : Double?
     
     var lib: PKPassLibrary?
+    static var checkOutReady : Bool = false
     
     let SupportedPaymentNetworks = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex] // supported payment types
     let ApplePayXpressMerchantID = "merchant.com.rickyavina.Xpress"
@@ -42,9 +44,15 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
         listTableView.registerNib(UINib(nibName: "Item", bundle: nil), forCellReuseIdentifier: "itemID")
         
         if (PKPaymentAuthorizationViewController.canMakePayments() == false){
-            UIAlertController(title: "Device not compliable with apple pay", message: "Please use a device that supports Apple Pay", preferredStyle: UIAlertControllerStyle.Alert)
+            let myAlert = UIAlertView()
+            myAlert.title = "Apple pay not supported!"
+            myAlert.message = "Please update or use a device that supports Apple Pay"
+            myAlert.addButtonWithTitle("Ok")
+            myAlert.delegate = self
+            myAlert.show()
             // dont display Apple pay stuff
             checkoutLabel.hidden = true
+            
         }
         
         var total : Double = 0
@@ -53,6 +61,7 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
             total += GlobalData.items[i]["price"] as! Double
         }
         
+        totalPrice = total
         var totalText = "\(total)"
         let formatter = NSNumberFormatter()
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
@@ -69,34 +78,67 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
     
     
     @IBAction func checkout(sender: UIButton) {
-        if (PKPassLibrary.isPassLibraryAvailable()){
-        if (PKPaymentAuthorizationViewController.canMakePaymentsUsingNetworks(SupportedPaymentNetworks) == false){
-            // credit card not added
-            let alert = UIAlertController(title: "No payment information!", message:"Please enter a valid credit card", preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in
-                self.lib!.openPaymentSetup()
-                })
-            self.presentViewController(alert, animated: true){}
-            print("Payment not authorized")
+        
+        if (totalPrice>0){
+            if (ViewControllerListPage.checkOutReady == true || (GlobalData.sharedInstance.app?.user().isAuthenticated()) == true){
+                if (PKPassLibrary.isPassLibraryAvailable()){
+                if (PKPaymentAuthorizationViewController.canMakePaymentsUsingNetworks(SupportedPaymentNetworks) == false){
+                    // credit card not added
+                    let alert = UIAlertController(title: "No payment information!", message:"Please enter a valid credit card", preferredStyle: .Alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in
+                        self.lib!.openPaymentSetup()
+                        })
+                    self.presentViewController(alert, animated: true){}
+                   // print("Payment not authorized")
+                } else {
+                    let request = PKPaymentRequest()
+                    request.merchantIdentifier = ApplePayXpressMerchantID
+                    request.supportedNetworks = SupportedPaymentNetworks
+                    request.merchantCapabilities = PKMerchantCapability.Capability3DS
+                    request.countryCode = "US"
+                    request.currencyCode = "USD"
+                    
+                    
+                    let behavior = NSDecimalNumberHandler(roundingMode: NSRoundingMode.RoundPlain,
+                                                          scale: 2,
+                                                          raiseOnExactness: false,
+                                                          raiseOnOverflow: false,
+                                                          raiseOnUnderflow: false,
+                                                          raiseOnDivideByZero: false)
+                    
+                    let calcDN : NSDecimalNumber = NSDecimalNumber(double: totalPrice!)
+                        .decimalNumberByRoundingAccordingToBehavior(behavior)
+                   
+                    request.paymentSummaryItems = [
+                        PKPaymentSummaryItem(label: "Shopping Cart", amount: calcDN)
+                    ]
+                    
+                    let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
+                    applePayController.delegate = self
+                    
+                    self.presentViewController(applePayController, animated: true, completion: nil)
+                }
+                }
+            } else {
+                self.performSegueWithIdentifier("presentPopover", sender: nil)
+            }
         } else {
-            let request = PKPaymentRequest()
-            request.merchantIdentifier = ApplePayXpressMerchantID
-            request.supportedNetworks = SupportedPaymentNetworks
-            request.merchantCapabilities = PKMerchantCapability.Capability3DS
-            request.countryCode = "US"
-            request.currencyCode = "USD"
-            
-            request.paymentSummaryItems = [
-                PKPaymentSummaryItem(label: "Absolutely Nothing", amount: 0.01)
-            ]
-            
-            let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
-            applePayController.delegate = self
-            
-            self.presentViewController(applePayController, animated: true, completion: nil)
+            let myAlert = UIAlertView()
+            myAlert.title = "Nothing in Cart!"
+            myAlert.message = "You must scan an item before purchasing!"
+            myAlert.addButtonWithTitle("Ok")
+            myAlert.delegate = self
+            myAlert.show()
         }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "presentPopover" {
+            let dest = segue.destinationViewController
+            if let pop = dest.popoverPresentationController {
+                pop.delegate = self
+            }
         }
-
     }
     
     

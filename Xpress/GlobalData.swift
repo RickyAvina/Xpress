@@ -18,10 +18,12 @@ class GlobalData {
     var emailIsInUse : Bool?
     var app : BuiltApplication?
     var builtUser : BuiltUser?
+    var builtApplication : BuiltApplication?
     
     func initialize(){
-        app = Built.applicationWithAPIKey("blt2543bf0c950e6d5d")
-        builtUser = app?.user()
+        let builtApplicationAPIKey = "blt2543bf0c950e6d5d"
+        app = Built.applicationWithAPIKey(builtApplicationAPIKey)
+     //   builtUser = app?.user()
     }
     
     func verifyUser(email email:String) -> Bool{
