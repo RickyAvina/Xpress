@@ -80,15 +80,18 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
     @IBAction func checkout(sender: UIButton) {
         
         if (totalPrice>0){
-            if (ViewControllerListPage.checkOutReady == true || (GlobalData.sharedInstance.app?.user().isAuthenticated()) == true){
+            if (ViewControllerListPage.checkOutReady == true || (GlobalData.sharedInstance.app?.currentUser.isAuthenticated()) == true){
                 if (PKPassLibrary.isPassLibraryAvailable()){
                 if (PKPaymentAuthorizationViewController.canMakePaymentsUsingNetworks(SupportedPaymentNetworks) == false){
                     // credit card not added
                     let alert = UIAlertController(title: "No payment information!", message:"Please enter a valid credit card", preferredStyle: .Alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .Default) { _ in
-                        self.lib!.openPaymentSetup()
+                        self.presentViewController(alert, animated: true){
+                            self.lib!.openPaymentSetup()
+                        }
+                        
                         })
-                    self.presentViewController(alert, animated: true){}
+                    
                    // print("Payment not authorized")
                 } else {
                     let request = PKPaymentRequest()
@@ -132,15 +135,20 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "presentPopover" {
-            let dest = segue.destinationViewController
-            if let pop = dest.popoverPresentationController {
-                pop.delegate = self
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if identifier == "presentPopover"{
+            if (totalPrice>0){
+                return true
+            } else {
+                return false
             }
         }
+        
+        if (identifier == "listToMain"){
+            return true
+        }
+        return false
     }
-    
     
     override func didReceiveMemoryWarning() {
         

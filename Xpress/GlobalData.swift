@@ -113,9 +113,9 @@ class GlobalData {
                 
                 if (error == nil){
                     userObject.setAsCurrentUser()
-                    print("User: \(GlobalData.sharedInstance.app?.user())")
+                   /* print("User: \(GlobalData.sharedInstance.app?.currentUser)")
                     print("Authtoken: \(userObject.authtoken)")
-                    print("IsAuthenticated: \(GlobalData.sharedInstance.app?.user().isAuthenticated())")
+                    print("IsAuthenticated: \(GlobalData.sharedInstance.app?.currentUser.isAuthenticated())")*/
                     onSuccess()
                 } else {
                     print("Error logging in: \(error)")

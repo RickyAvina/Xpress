@@ -80,6 +80,8 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "fruits-market-colors.png")!)
+        
         self.middleInitialPicker.delegate = self
         self.middleInitialPicker.dataSource = self
         middleInitialPickerData = ["", "A.", "B.", "C.", "D.", "E.", "F.", "G.", "H.", "I.", "J.", "K.", "L.", "M.", "N.", "O.", "P.", "Q.", "R.", "S.", "T.", "U.", "V.", "W.", "X.", "Y.", "Z."]
@@ -106,6 +108,11 @@ class ViewControllerRegisterPage: UIViewController, UIPickerViewDelegate, UIPick
     // The data to return for the row and component (column) that's being passed in
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return middleInitialPickerData[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let string = middleInitialPickerData[row]
+        return NSAttributedString(string: string, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

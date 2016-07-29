@@ -18,7 +18,7 @@ class ViewControllerLoginPage: UIViewController {
     @IBAction func login(sender: UIButton) {
         
     GlobalData.sharedInstance.loginUser(emailTextField.text!, password: passwordTextField.text!, onSuccess: {[weak self] in
-            print("IsAuthenticated login screen: \((GlobalData.sharedInstance.builtApplication!.user().isAuthenticated()))")
+           // print("IsAuthenticated login screen: \((GlobalData.sharedInstance.app?.currentUser.isAuthenticated()))")
           })
     }
     

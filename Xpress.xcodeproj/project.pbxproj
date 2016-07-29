@@ -53,6 +53,16 @@
 		949FFBFC1D45E74100119162 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBFB1D45E74100119162 /* libicucore.tbd */; };
 		949FFBFE1D45E74900119162 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBFD1D45E74900119162 /* libsqlite3.tbd */; };
 		94BC58801D4AC1B7002D1EE9 /* ApplePayBTN.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BC587F1D4AC1B7002D1EE9 /* ApplePayBTN.png */; };
+		94DD47A01D4BB64F00DC804F /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DD479F1D4BB64F00DC804F /* arrow.png */; };
+		94DD47A21D4BB65600DC804F /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DD47A11D4BB65600DC804F /* cart.png */; };
+		94DD47A41D4BB91C00DC804F /* fruits-market-colors.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DD47A31D4BB91C00DC804F /* fruits-market-colors.png */; };
+		94DD47A61D4BD52500DC804F /* ViewControllerAccountPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DD47A51D4BD52500DC804F /* ViewControllerAccountPage.swift */; };
+		94DD47A81D4BD67D00DC804F /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DD47A71D4BD67D00DC804F /* list.png */; };
+		94DD47AA1D4BD68B00DC804F /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DD47A91D4BD68B00DC804F /* camera.png */; };
+		94DD47AC1D4BD7EF00DC804F /* blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 94DD47AB1D4BD7EF00DC804F /* blur.jpg */; };
+		94DD47AE1D4BD9D400DC804F /* rsz_blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 94DD47AD1D4BD9D400DC804F /* rsz_blur.jpg */; };
+		94DD47B01D4BDAEB00DC804F /* sky-clouds-cloudy-blur.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 94DD47AF1D4BDAEB00DC804F /* sky-clouds-cloudy-blur.jpg */; };
+		94DD47B21D4BDBEA00DC804F /* clouds.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 94DD47B11D4BDBEA00DC804F /* clouds.jpeg */; };
 		94EB68611D481D2200FEC971 /* market.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 94EB68601D481D2200FEC971 /* market.jpeg */; };
 		94EB68631D486A3D00FEC971 /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94EB68621D486A3D00FEC971 /* x.png */; };
 		94EB68661D4A812500FEC971 /* Item.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94EB68651D4A812500FEC971 /* Item.xib */; };
@@ -144,6 +154,16 @@
 		949FFBFB1D45E74100119162 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		949FFBFD1D45E74900119162 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		94BC587F1D4AC1B7002D1EE9 /* ApplePayBTN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ApplePayBTN.png; sourceTree = "<group>"; };
+		94DD479F1D4BB64F00DC804F /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		94DD47A11D4BB65600DC804F /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
+		94DD47A31D4BB91C00DC804F /* fruits-market-colors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fruits-market-colors.png"; sourceTree = "<group>"; };
+		94DD47A51D4BD52500DC804F /* ViewControllerAccountPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerAccountPage.swift; sourceTree = "<group>"; };
+		94DD47A71D4BD67D00DC804F /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		94DD47A91D4BD68B00DC804F /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		94DD47AB1D4BD7EF00DC804F /* blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blur.jpg; sourceTree = "<group>"; };
+		94DD47AD1D4BD9D400DC804F /* rsz_blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rsz_blur.jpg; sourceTree = "<group>"; };
+		94DD47AF1D4BDAEB00DC804F /* sky-clouds-cloudy-blur.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "sky-clouds-cloudy-blur.jpg"; sourceTree = "<group>"; };
+		94DD47B11D4BDBEA00DC804F /* clouds.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = clouds.jpeg; sourceTree = "<group>"; };
 		94EB68601D481D2200FEC971 /* market.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = market.jpeg; sourceTree = "<group>"; };
 		94EB68621D486A3D00FEC971 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
 		94EB68641D49114F00FEC971 /* Xpress.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Xpress.entitlements; sourceTree = "<group>"; };
@@ -271,6 +291,7 @@
 				943D06801D3B25A800730F39 /* AppDelegate.swift */,
 				943D06821D3B25A800730F39 /* ViewController.swift */,
 				943D06841D3B25A800730F39 /* Main.storyboard */,
+				94DD47A51D4BD52500DC804F /* ViewControllerAccountPage.swift */,
 				944004131D4012EF0000098F /* Item.swift */,
 				94EB68651D4A812500FEC971 /* Item.xib */,
 				9440040B1D3F45B50000098F /* ViewControllerCameraPage.swift */,
@@ -311,9 +332,18 @@
 		94EB685E1D481CA300FEC971 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				94DD47A71D4BD67D00DC804F /* list.png */,
+				94DD479F1D4BB64F00DC804F /* arrow.png */,
 				94EB68621D486A3D00FEC971 /* x.png */,
 				94EB68601D481D2200FEC971 /* market.jpeg */,
 				94BC587F1D4AC1B7002D1EE9 /* ApplePayBTN.png */,
+				94DD47A11D4BB65600DC804F /* cart.png */,
+				94DD47A31D4BB91C00DC804F /* fruits-market-colors.png */,
+				94DD47AB1D4BD7EF00DC804F /* blur.jpg */,
+				94DD47A91D4BD68B00DC804F /* camera.png */,
+				94DD47AD1D4BD9D400DC804F /* rsz_blur.jpg */,
+				94DD47AF1D4BDAEB00DC804F /* sky-clouds-cloudy-blur.jpg */,
+				94DD47B11D4BDBEA00DC804F /* clouds.jpeg */,
 			);
 			name = Images;
 			path = Xpress;
@@ -437,12 +467,21 @@
 			files = (
 				949FFBEB1D45E6CA00119162 /* BuiltIO.bundle in Resources */,
 				94BC58801D4AC1B7002D1EE9 /* ApplePayBTN.png in Resources */,
+				94DD47A41D4BB91C00DC804F /* fruits-market-colors.png in Resources */,
 				943D068E1D3B25A800730F39 /* LaunchScreen.storyboard in Resources */,
 				94EB68661D4A812500FEC971 /* Item.xib in Resources */,
 				94EB68611D481D2200FEC971 /* market.jpeg in Resources */,
+				94DD47B01D4BDAEB00DC804F /* sky-clouds-cloudy-blur.jpg in Resources */,
+				94DD47AA1D4BD68B00DC804F /* camera.png in Resources */,
 				943D068B1D3B25A800730F39 /* Assets.xcassets in Resources */,
+				94DD47AC1D4BD7EF00DC804F /* blur.jpg in Resources */,
+				94DD47A21D4BB65600DC804F /* cart.png in Resources */,
 				94EB68631D486A3D00FEC971 /* x.png in Resources */,
+				94DD47A81D4BD67D00DC804F /* list.png in Resources */,
+				94DD47B21D4BDBEA00DC804F /* clouds.jpeg in Resources */,
 				943D06861D3B25A800730F39 /* Main.storyboard in Resources */,
+				94DD47A01D4BB64F00DC804F /* arrow.png in Resources */,
+				94DD47AE1D4BD9D400DC804F /* rsz_blur.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +513,7 @@
 				944004041D3D90D70000098F /* ViewControllerMainPage.swift in Sources */,
 				944004101D400FDC0000098F /* ViewControllerListPage.swift in Sources */,
 				943D06811D3B25A800730F39 /* AppDelegate.swift in Sources */,
+				94DD47A61D4BD52500DC804F /* ViewControllerAccountPage.swift in Sources */,
 				944004061D3EB7690000098F /* ViewControllerLoginPage.swift in Sources */,
 				948E9F111D4AEB6B0043000C /* ViewControllerPopupPage.swift in Sources */,
 				9440040C1D3F45B50000098F /* ViewControllerCameraPage.swift in Sources */,
