@@ -195,6 +195,10 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
             if (GlobalData.items[indexPath.row]["upcCode"] != nil){
                 cell?.upcCode.text = GlobalData.items[indexPath.row]["upcCode"] as? String
             }
+            
+            if (GlobalData.items[indexPath.row]["itemImage"] != nil){
+                cell?.itemImage.image = GlobalData.items[indexPath.row]["itemImage"] as? UIImage
+            }
         }
     
             return cell!
@@ -207,7 +211,7 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        let HeightOfCellCreatedInXIBFILE : CGFloat = 200
+        let HeightOfCellCreatedInXIBFILE : CGFloat = 500
         
         return HeightOfCellCreatedInXIBFILE
     }

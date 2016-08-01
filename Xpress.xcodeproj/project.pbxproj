@@ -52,6 +52,7 @@
 		949FFBFA1D45E73600119162 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBF91D45E73600119162 /* Security.framework */; };
 		949FFBFC1D45E74100119162 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBFB1D45E74100119162 /* libicucore.tbd */; };
 		949FFBFE1D45E74900119162 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBFD1D45E74900119162 /* libsqlite3.tbd */; };
+		94A4FEDA1D4FE5BA00E25596 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4FED91D4FE5BA00E25596 /* String+.swift */; };
 		94BC58801D4AC1B7002D1EE9 /* ApplePayBTN.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BC587F1D4AC1B7002D1EE9 /* ApplePayBTN.png */; };
 		94DD47A01D4BB64F00DC804F /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DD479F1D4BB64F00DC804F /* arrow.png */; };
 		94DD47A21D4BB65600DC804F /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DD47A11D4BB65600DC804F /* cart.png */; };
@@ -155,6 +156,7 @@
 		949FFBF91D45E73600119162 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		949FFBFB1D45E74100119162 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		949FFBFD1D45E74900119162 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		94A4FED91D4FE5BA00E25596 /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		94BC587F1D4AC1B7002D1EE9 /* ApplePayBTN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ApplePayBTN.png; sourceTree = "<group>"; };
 		94DD479F1D4BB64F00DC804F /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		94DD47A11D4BB65600DC804F /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				944004131D4012EF0000098F /* Item.swift */,
 				94EB68651D4A812500FEC971 /* Item.xib */,
 				9440040B1D3F45B50000098F /* ViewControllerCameraPage.swift */,
+				94A4FED91D4FE5BA00E25596 /* String+.swift */,
 				94F751391D41BB3300413DDA /* +UIView.swift */,
 				944004031D3D90D70000098F /* ViewControllerMainPage.swift */,
 				9440040F1D400FDC0000098F /* ViewControllerListPage.swift */,
@@ -523,6 +526,7 @@
 				943D06811D3B25A800730F39 /* AppDelegate.swift in Sources */,
 				94DD47A61D4BD52500DC804F /* ViewControllerAccountPage.swift in Sources */,
 				944004061D3EB7690000098F /* ViewControllerLoginPage.swift in Sources */,
+				94A4FEDA1D4FE5BA00E25596 /* String+.swift in Sources */,
 				948E9F111D4AEB6B0043000C /* ViewControllerPopupPage.swift in Sources */,
 				9440040C1D3F45B50000098F /* ViewControllerCameraPage.swift in Sources */,
 				9440040A1D3F3B540000098F /* GlobalData.swift in Sources */,

@@ -162,6 +162,16 @@ func barcodePicker(picker: SBSBarcodePicker, didScan session: SBSScanSession) {
                         let productData = dictArray[0] as [String : AnyObject]
                         let productName = (productData["name"])!
                         let productPrice = (productData["salePrice"])!
+                        let str : String = (productData["mediumImage"])! as! String
+                        
+                        let productImageString : String = str.insert("s", ind: 4)
+                        
+                        print(productImageString)
+                        
+                        
+                        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                            
+                            let productImage : UIImage =  UIImage(data: NSData(contentsOfURL: NSURL(string:productImageString)!)!)! as UIImage
                         
                         print("Product Name: \(productName)")
                         print("Product Price: \(productPrice)")
@@ -180,11 +190,12 @@ func barcodePicker(picker: SBSBarcodePicker, didScan session: SBSScanSession) {
                         tempData["name"] = productName
                         tempData["price"] = productPrice
                         tempData["upcCode"] = code.data
+                        tempData["itemImage"] = productImage
                         
                        // print(tempData)
                         GlobalData.items.append(tempData)
                         
-                        
+                        })
                         
                     }catch {
                         print("Error with Json: \(error)")
