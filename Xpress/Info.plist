@@ -49,7 +49,10 @@
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
-		<dict/>
+		<dict>
+			<key>http://api.walmartlabs.com</key>
+			<string></string>
+		</dict>
 		<key>apple.com</key>
 		<string></string>
 		<key>NSAllowsArbitraryLoads</key>

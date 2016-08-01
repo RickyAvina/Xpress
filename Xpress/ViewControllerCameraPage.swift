@@ -138,9 +138,11 @@ func barcodePicker(picker: SBSBarcodePicker, didScan session: SBSScanSession) {
         
         dispatch_async(dispatch_get_main_queue()) {
             
-            let requestURL : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\((code.data)!)?apikey=f603e960da29067c4573079073426751")!
+         //   let requestURL : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\((code.data)!)?apikey=f603e960da29067c4573079073426751")!
             
-            let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
+            let requestURLWalmart : NSURL = NSURL(string: "https://api.walmartlabs.com/v1/items?apiKey=smcsbxee4wswerednrtk4mwx&upc=\((code.data)!)")!
+            
+            let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURLWalmart)
             
             let session = NSURLSession.sharedSession()
             
@@ -154,17 +156,32 @@ func barcodePicker(picker: SBSBarcodePicker, didScan session: SBSScanSession) {
                 if (statusCode == 200){
                     do{
                         
-                        let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+                        let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String : [[String:AnyObject]]]
+                        
+                        let dictArray = (json!["items"]!) as [[String: AnyObject]]
+                        let productData = dictArray[0] as [String : AnyObject]
+                        let productName = (productData["name"])!
+                        let productPrice = (productData["salePrice"])!
+                        
+                        print("Product Name: \(productName)")
+                        print("Product Price: \(productPrice)")
+                       // let name = items!["name"]
+                        //print(name)
+                        
+                       // let theItems = json!["items"] as? [String: AnyObject]
                         
                         
-                        let name = (json!["name"] as? String)
+                    //    print (theItems!)
+                        
+    
+                        //let name = (json!["name"] as? String)
                         
                         var tempData = [String:Any]() // creates a temporary array for the item info
-                        tempData["name"] = name
-                        tempData["price"] = 1.25
+                        tempData["name"] = productName
+                        tempData["price"] = productPrice
                         tempData["upcCode"] = code.data
                         
-                        print(tempData)
+                       // print(tempData)
                         GlobalData.items.append(tempData)
                         
                         
