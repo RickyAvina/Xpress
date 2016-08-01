@@ -53,6 +53,8 @@
 		949FFBFC1D45E74100119162 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBFB1D45E74100119162 /* libicucore.tbd */; };
 		949FFBFE1D45E74900119162 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 949FFBFD1D45E74900119162 /* libsqlite3.tbd */; };
 		94A4FEDA1D4FE5BA00E25596 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4FED91D4FE5BA00E25596 /* String+.swift */; };
+		94A4FEDC1D4FFB2D00E25596 /* ViewControllerItemDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4FEDB1D4FFB2D00E25596 /* ViewControllerItemDescription.swift */; };
+		94A4FEDE1D50009500E25596 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 94A4FEDD1D50009500E25596 /* placeholder.png */; };
 		94BC58801D4AC1B7002D1EE9 /* ApplePayBTN.png in Resources */ = {isa = PBXBuildFile; fileRef = 94BC587F1D4AC1B7002D1EE9 /* ApplePayBTN.png */; };
 		94DD47A01D4BB64F00DC804F /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DD479F1D4BB64F00DC804F /* arrow.png */; };
 		94DD47A21D4BB65600DC804F /* cart.png in Resources */ = {isa = PBXBuildFile; fileRef = 94DD47A11D4BB65600DC804F /* cart.png */; };
@@ -157,6 +159,8 @@
 		949FFBFB1D45E74100119162 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		949FFBFD1D45E74900119162 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		94A4FED91D4FE5BA00E25596 /* String+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		94A4FEDB1D4FFB2D00E25596 /* ViewControllerItemDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerItemDescription.swift; sourceTree = "<group>"; };
+		94A4FEDD1D50009500E25596 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		94BC587F1D4AC1B7002D1EE9 /* ApplePayBTN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ApplePayBTN.png; sourceTree = "<group>"; };
 		94DD479F1D4BB64F00DC804F /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		94DD47A11D4BB65600DC804F /* cart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cart.png; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 				94F751391D41BB3300413DDA /* +UIView.swift */,
 				944004031D3D90D70000098F /* ViewControllerMainPage.swift */,
 				9440040F1D400FDC0000098F /* ViewControllerListPage.swift */,
+				94A4FEDB1D4FFB2D00E25596 /* ViewControllerItemDescription.swift */,
 				948E9F101D4AEB6B0043000C /* ViewControllerPopupPage.swift */,
 				944004091D3F3B540000098F /* GlobalData.swift */,
 				94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */,
@@ -353,6 +358,7 @@
 				94DD47AD1D4BD9D400DC804F /* rsz_blur.jpg */,
 				94DD47AF1D4BDAEB00DC804F /* sky-clouds-cloudy-blur.jpg */,
 				94DD47B11D4BDBEA00DC804F /* clouds.jpeg */,
+				94A4FEDD1D50009500E25596 /* placeholder.png */,
 			);
 			name = Images;
 			path = Xpress;
@@ -484,6 +490,7 @@
 				94DD47AA1D4BD68B00DC804F /* camera.png in Resources */,
 				943D068B1D3B25A800730F39 /* Assets.xcassets in Resources */,
 				94FB04BF1D4F2850008405C5 /* video.m4v in Resources */,
+				94A4FEDE1D50009500E25596 /* placeholder.png in Resources */,
 				94DD47AC1D4BD7EF00DC804F /* blur.jpg in Resources */,
 				94DD47A21D4BB65600DC804F /* cart.png in Resources */,
 				94EB68631D486A3D00FEC971 /* x.png in Resources */,
@@ -531,6 +538,7 @@
 				9440040C1D3F45B50000098F /* ViewControllerCameraPage.swift in Sources */,
 				9440040A1D3F3B540000098F /* GlobalData.swift in Sources */,
 				94F7513A1D41BB3300413DDA /* +UIView.swift in Sources */,
+				94A4FEDC1D4FFB2D00E25596 /* ViewControllerItemDescription.swift in Sources */,
 				94F7513C1D41BFE100413DDA /* +NSUserDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

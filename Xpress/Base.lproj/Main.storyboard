@@ -270,6 +270,61 @@
             </objects>
             <point key="canvasLocation" x="-2751" y="610"/>
         </scene>
+        <!--View Controller Detail Page-->
+        <scene sceneID="13W-cM-CDx">
+            <objects>
+                <viewController storyboardIdentifier="itemDescription" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QI9-UY-Ypr" customClass="ViewControllerDetailPage" customModule="Xpress" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7z1-Je-tO9"/>
+                        <viewControllerLayoutGuide type="bottom" id="IhZ-XI-HFZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f2g-Z3-Pvf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSl-mT-f1D">
+                                <rect key="frame" x="20" y="118" width="560" height="462"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1TI-K7-t8D">
+                                <rect key="frame" x="20" y="20" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="GlU-xh-W8l" kind="show" id="5f0-1J-IhU"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dP-JU-kp8">
+                                <rect key="frame" x="20" y="49" width="560" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VSl-mT-f1D" firstAttribute="top" secondItem="5dP-JU-kp8" secondAttribute="bottom" constant="8" symbolic="YES" id="Ac1-o3-SX3"/>
+                            <constraint firstItem="5dP-JU-kp8" firstAttribute="trailing" secondItem="VSl-mT-f1D" secondAttribute="trailing" id="Eff-RO-FvW"/>
+                            <constraint firstItem="1TI-K7-t8D" firstAttribute="top" secondItem="7z1-Je-tO9" secondAttribute="bottom" id="GDv-51-zKy"/>
+                            <constraint firstItem="5dP-JU-kp8" firstAttribute="leading" secondItem="VSl-mT-f1D" secondAttribute="leading" id="IJM-Zy-goP"/>
+                            <constraint firstItem="5dP-JU-kp8" firstAttribute="trailing" secondItem="f2g-Z3-Pvf" secondAttribute="trailingMargin" id="P3h-4W-4PQ"/>
+                            <constraint firstAttribute="bottom" secondItem="VSl-mT-f1D" secondAttribute="bottom" constant="20" symbolic="YES" id="cCq-l7-9tG"/>
+                            <constraint firstItem="5dP-JU-kp8" firstAttribute="top" secondItem="7z1-Je-tO9" secondAttribute="bottom" constant="29" id="fPJ-ir-gmq"/>
+                            <constraint firstItem="VSl-mT-f1D" firstAttribute="top" secondItem="1TI-K7-t8D" secondAttribute="bottom" constant="68" id="fSj-Eu-T49"/>
+                            <constraint firstItem="1TI-K7-t8D" firstAttribute="leading" secondItem="5dP-JU-kp8" secondAttribute="leading" id="n7G-YI-kwS"/>
+                            <constraint firstItem="1TI-K7-t8D" firstAttribute="leading" secondItem="f2g-Z3-Pvf" secondAttribute="leadingMargin" id="stW-Sp-E5I"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="itemDescriptionLabel" destination="VSl-mT-f1D" id="ZQ2-xh-fja"/>
+                        <outlet property="itemNameLabel" destination="5dP-JU-kp8" id="7CW-Av-uDa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hk5-gJ-dSx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1859" y="-74"/>
+        </scene>
         <!--View Controller List Page-->
         <scene sceneID="oOe-EF-agC">
             <objects>
@@ -500,8 +555,8 @@
                                     <segue destination="GlU-xh-W8l" kind="show" id="wOc-7q-v53"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilQ-2j-3RU">
-                                <rect key="frame" x="20" y="548" width="560" height="34"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilQ-2j-3RU">
+                                <rect key="frame" x="20" y="550" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -724,7 +779,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Pdi-73-UYl"/>
-        <segue reference="wOc-7q-v53"/>
         <segue reference="M3i-0c-hbL"/>
+        <segue reference="5f0-1J-IhU"/>
     </inferredMetricsTieBreakers>
 </document>

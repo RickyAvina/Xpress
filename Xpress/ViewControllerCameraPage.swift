@@ -122,115 +122,132 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
             
         }
     }
-
-    
-
-func barcodePicker(picker: SBSBarcodePicker, didScan session: SBSScanSession) {
-    print("AYY")
-    session.stopScanning()
     
     
-    let code : SBSCode = session.newlyRecognizedCodes[0] as! SBSCode
     
-    if (code.symbology != SBSSymbology.Unknown){
-        // code to handle barcode result
+    func barcodePicker(picker: SBSBarcodePicker, didScan session: SBSScanSession) {
+        print("AYY")
+        session.stopScanning()
         
         
-        dispatch_async(dispatch_get_main_queue()) {
-            
-         //   let requestURL : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\((code.data)!)?apikey=f603e960da29067c4573079073426751")!
-            
-            let requestURLWalmart : NSURL = NSURL(string: "https://api.walmartlabs.com/v1/items?apiKey=smcsbxee4wswerednrtk4mwx&upc=\((code.data)!)")!
-            
-            let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURLWalmart)
-            
-            let session = NSURLSession.sharedSession()
+        let code : SBSCode = session.newlyRecognizedCodes[0] as! SBSCode
+        
+        if (code.symbology != SBSSymbology.Unknown){
+            // code to handle barcode result
             
             
-            let task = session.dataTaskWithRequest(urlRequest) {
-                (data, response, error) -> Void in
+            dispatch_async(dispatch_get_main_queue()) {
                 
-                let httpResponse = response as! NSHTTPURLResponse
-                let statusCode = httpResponse.statusCode
+                //   let requestURL : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\((code.data)!)?apikey=f603e960da29067c4573079073426751")!
                 
-                if (statusCode == 200){
-                    do{
-                        
-                        let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String : [[String:AnyObject]]]
-                        
-                        let dictArray = (json!["items"]!) as [[String: AnyObject]]
-                        let productData = dictArray[0] as [String : AnyObject]
-                        let productName = (productData["name"])!
-                        let productPrice = (productData["salePrice"])!
-                        let str : String = (productData["mediumImage"])! as! String
-                        
-                        let productImageString : String = str.insert("s", ind: 4)
-                        
-                        print(productImageString)
-                        
-                        
-                        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-                            
-                            let productImage : UIImage =  UIImage(data: NSData(contentsOfURL: NSURL(string:productImageString)!)!)! as UIImage
-                        
-                        print("Product Name: \(productName)")
-                        print("Product Price: \(productPrice)")
-                       // let name = items!["name"]
-                        //print(name)
-                        
-                       // let theItems = json!["items"] as? [String: AnyObject]
-                        
-                        
-                    //    print (theItems!)
-                        
-    
-                        //let name = (json!["name"] as? String)
-                        
-                        var tempData = [String:Any]() // creates a temporary array for the item info
-                        tempData["name"] = productName
-                        tempData["price"] = productPrice
-                        tempData["upcCode"] = code.data
-                        tempData["itemImage"] = productImage
-                        
-                       // print(tempData)
-                        GlobalData.items.append(tempData)
-                        
-                        })
-                        
-                    }catch {
-                        print("Error with Json: \(error)")
-                    }
+                let requestURLWalmart : NSURL = NSURL(string: "https://api.walmartlabs.com/v1/items?apiKey=smcsbxee4wswerednrtk4mwx&upc=\((code.data)!)")!
+                
+                let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURLWalmart)
+                
+                let session = NSURLSession.sharedSession()
+                
+                
+                let task = session.dataTaskWithRequest(urlRequest) {
+                    (data, response, error) -> Void in
                     
-                } else {
-                    print("NO INTERNET CONNECTION")
+                    let httpResponse = response as! NSHTTPURLResponse
+                    let statusCode = httpResponse.statusCode
+                    
+                    if (statusCode == 200){
+                        do{
+                            
+                            let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String : [[String:AnyObject]]]
+                            
+                            let dictArray = (json!["items"]!) as [[String: AnyObject]]
+                            let productData = dictArray[0] as [String : AnyObject]
+                            let productName = (productData["name"])!
+                            let productPrice = (productData["salePrice"])!
+                            let str : String = (productData["mediumImage"])! as! String
+                            let description : String = (productData["longDescription"])! as! String
+                            
+                            let productImageString : String?
+                            if (str[str.startIndex.advancedBy(4)] == "s"){
+                                productImageString = str
+                            } else {
+                                productImageString  = str.insert("s", ind: 4)
+                            }
+                            
+                          //  print(productImageString)
+                         
+                            dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                                
+                                var tempData = [String:Any]() // creates a temporary array for the item info
+                                
+                                var productImage : UIImage?
+                                
+                               // print ("PRODUCT IMAGE STRING: \(productImageString)")
+                                if (productImageString?.characters.count>0){
+                                    productImage =  UIImage(data: NSData(contentsOfURL: NSURL(string:productImageString!)!)!)! as UIImage
+                                } else {
+                                    productImage = UIImage(named: "placeholder.png")
+                                }
+                                
+                                tempData["itemImage"] = productImage
+                                
+                                
+                                print("Product Name: \(productName)")
+                                print("Product Price: \(productPrice)")
+                                // let name = items!["name"]
+                                //print(name)
+                                
+                                // let theItems = json!["items"] as? [String: AnyObject]
+                                
+                                
+                                //    print (theItems!)
+                                
+                                
+                                //let name = (json!["name"] as? String)
+                                
+                                
+                                tempData["name"] = productName
+                                tempData["price"] = productPrice
+                                tempData["upcCode"] = code.data
+                                tempData["desc"] = description
+                                
+                                // print(tempData)
+                                GlobalData.items.append(tempData)
+                                
+                            })
+                            
+                        }catch {
+                            print("Error with Json: \(error)")
+                        }
+                        
+                    } else {
+                        print("NO INTERNET CONNECTION")
+                    }
                 }
+                task.resume()
+                
+                
             }
-            task.resume()
-            
-            
         }
+        
+        self.performSegueWithIdentifier("goBackToMainPage", sender: nil)
+        
+        
+        
+        // print("scanned: \(code.symbology), barcode: \(code.data)")
+        
     }
     
-    self.performSegueWithIdentifier("goBackToMainPage", sender: nil)
+    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+        // picker?.startScanning();
+    }
     
+    func overlayController(overlayController: SBSOverlayController, didCancelWithStatus status: [NSObject : AnyObject]?) {
+        // called when user cancles barcode scan process
+    }
     
+    func doubleTapped(){
+        performSegueWithIdentifier("goBackToMainPage", sender: nil)
+    }
     
-    // print("scanned: \(code.symbology), barcode: \(code.data)")
-    
-}
-
-func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
-    // picker?.startScanning();
-}
-
-func overlayController(overlayController: SBSOverlayController, didCancelWithStatus status: [NSObject : AnyObject]?) {
-    // called when user cancles barcode scan process
-}
-
-func doubleTapped(){
-    performSegueWithIdentifier("goBackToMainPage", sender: nil)
-}
-
 }
 
 enum AppError : ErrorType {

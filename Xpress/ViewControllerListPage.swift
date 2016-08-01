@@ -199,13 +199,25 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
             if (GlobalData.items[indexPath.row]["itemImage"] != nil){
                 cell?.itemImage.image = GlobalData.items[indexPath.row]["itemImage"] as? UIImage
             }
+            
         }
     
             return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("itemDescription")
+        
+        ViewControllerDetailPage.name = GlobalData.items[indexPath.row]["name"] as? String
+        
+        ViewControllerDetailPage.desc = GlobalData.items[indexPath.row]["desc"] as? String
+        
+        self.presentViewController(vc, animated: true, completion:{
             
+        })
+        
     }
     
     
