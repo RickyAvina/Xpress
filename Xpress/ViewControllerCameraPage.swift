@@ -109,14 +109,21 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
         guard let path = NSBundle.mainBundle().pathForResource("video", ofType:"m4v") else {
             throw AppError.InvalidResource("video", "m4v")
         }
+        
+        
         let player = AVPlayer(URL: NSURL(fileURLWithPath: path))
         let playerController = AVPlayerViewController()
         playerController.player = player
+        
+        
         self.presentViewController(playerController, animated: true) {
             player.play()
+            
+            
         }
     }
 
+    
 
 func barcodePicker(picker: SBSBarcodePicker, didScan session: SBSScanSession) {
     print("AYY")
