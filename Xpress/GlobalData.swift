@@ -15,7 +15,7 @@ class GlobalData {
     static var g : Bool?
     
     static var items = [[String:Any]]()   // array of dictionaries for item info
-    static let isFirstLaunch = NSUserDefaults.isFirstLaunch()
+    static var isFirstLaunch = NSUserDefaults.isFirstLaunch()
     
     var emailIsInUse : Bool?
     var app : BuiltApplication?

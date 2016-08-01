@@ -69,6 +69,7 @@
 		94F7513A1D41BB3300413DDA /* +UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F751391D41BB3300413DDA /* +UIView.swift */; };
 		94F7513C1D41BFE100413DDA /* +NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */; };
 		94FB04BD1D4EF44A008405C5 /* ViewControllerReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FB04BC1D4EF44A008405C5 /* ViewControllerReceipt.swift */; };
+		94FB04BF1D4F2850008405C5 /* video.m4v in Resources */ = {isa = PBXBuildFile; fileRef = 94FB04BE1D4F2850008405C5 /* video.m4v */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +173,7 @@
 		94F751391D41BB3300413DDA /* +UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+UIView.swift"; sourceTree = "<group>"; };
 		94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+NSUserDefaults.swift"; sourceTree = "<group>"; };
 		94FB04BC1D4EF44A008405C5 /* ViewControllerReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerReceipt.swift; sourceTree = "<group>"; };
+		94FB04BE1D4F2850008405C5 /* video.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = video.m4v; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +337,7 @@
 		94EB685E1D481CA300FEC971 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				94FB04BE1D4F2850008405C5 /* video.m4v */,
 				94DD47A71D4BD67D00DC804F /* list.png */,
 				94DD479F1D4BB64F00DC804F /* arrow.png */,
 				94EB68621D486A3D00FEC971 /* x.png */,
@@ -477,6 +480,7 @@
 				94DD47B01D4BDAEB00DC804F /* sky-clouds-cloudy-blur.jpg in Resources */,
 				94DD47AA1D4BD68B00DC804F /* camera.png in Resources */,
 				943D068B1D3B25A800730F39 /* Assets.xcassets in Resources */,
+				94FB04BF1D4F2850008405C5 /* video.m4v in Resources */,
 				94DD47AC1D4BD7EF00DC804F /* blur.jpg in Resources */,
 				94DD47A21D4BB65600DC804F /* cart.png in Resources */,
 				94EB68631D486A3D00FEC971 /* x.png in Resources */,

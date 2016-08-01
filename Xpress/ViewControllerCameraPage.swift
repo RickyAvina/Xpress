@@ -8,12 +8,16 @@
 
 import UIKit
 import AVFoundation
+import AVKit
 
 class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayControllerDidCancelDelegate {
     
     var picker : SBSBarcodePicker?
     
     @IBOutlet var backButton: UIButton!
+    
+    var playerViewController = AVPlayerViewController()
+    var playerView = AVPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +47,7 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
         backButton.hidden = false
         backButton.bringSubviewToFront(backButton)
         
-       // let thePicker = SBSBarcodePicker(settings:settings);
+        // let thePicker = SBSBarcodePicker(settings:settings);
         picker = SBSBarcodePicker(settings: settings)
         // set delegate to recieve scan events
         picker!.scanDelegate = self
@@ -64,8 +68,8 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
         // Add constaints to place the picker at the top of the controller with a heigh of 300 and the same width as the controller. Since this is not the aspect ration of the preview, some of the videp will be cut away on the top and the bottom
         
         let pickerView : UIView = self.picker!.view
-      //  pickerView.pb_takeSnapshot()
-      
+        //  pickerView.pb_takeSnapshot()
+        
         var views : [String:AnyObject] = ["pickerView" : pickerView]
         
         if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_6_1){
@@ -78,27 +82,53 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
             self.view!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|(50)-[pickerView(self.view.bounds.height)]", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: views))
         }
         
-    self.view!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: views))
+        self.view!.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[pickerView]|", options: NSLayoutFormatOptions.AlignAllLeft, metrics: nil, views: views))
         
         picker!.startScanning()
-//        picker = thePicker;
+        //        picker = thePicker;
         // Start Scanning
-       
         
-       // self.presentViewController(picker!, animated: true, completion: nil)
+        
+        // self.presentViewController(picker!, animated: true, completion: nil)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if (GlobalData.isFirstLaunch){
+            do {
+                try playVideo()
+                GlobalData.isFirstLaunch = false
+            } catch AppError.InvalidResource(let name, let type) {
+                debugPrint("Could not find resource \(name).\(type)")
+            } catch {
+                debugPrint("Generic error")
+            }
         }
+    }
     
-    func barcodePicker(picker: SBSBarcodePicker, didScan session: SBSScanSession) {
-        print("AYY")
-        session.stopScanning()
-        
+    private func playVideo() throws {
+        guard let path = NSBundle.mainBundle().pathForResource("video", ofType:"m4v") else {
+            throw AppError.InvalidResource("video", "m4v")
+        }
+        let player = AVPlayer(URL: NSURL(fileURLWithPath: path))
+        let playerController = AVPlayerViewController()
+        playerController.player = player
+        self.presentViewController(playerController, animated: true) {
+            player.play()
+        }
+    }
+
+
+func barcodePicker(picker: SBSBarcodePicker, didScan session: SBSScanSession) {
+    print("AYY")
+    session.stopScanning()
     
-        let code : SBSCode = session.newlyRecognizedCodes[0] as! SBSCode
-        
-        if (code.symbology != SBSSymbology.Unknown){
+    
+    let code : SBSCode = session.newlyRecognizedCodes[0] as! SBSCode
+    
+    if (code.symbology != SBSSymbology.Unknown){
         // code to handle barcode result
-            
-            
+        
+        
         dispatch_async(dispatch_get_main_queue()) {
             
             let requestURL : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\((code.data)!)?apikey=f603e960da29067c4573079073426751")!
@@ -106,20 +136,20 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
             let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURL)
             
             let session = NSURLSession.sharedSession()
-
             
-             let task = session.dataTaskWithRequest(urlRequest) {
+            
+            let task = session.dataTaskWithRequest(urlRequest) {
                 (data, response, error) -> Void in
                 
                 let httpResponse = response as! NSHTTPURLResponse
                 let statusCode = httpResponse.statusCode
                 
                 if (statusCode == 200){
-                do{
-                    
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
-                    
-                    
+                    do{
+                        
+                        let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String: AnyObject]
+                        
+                        
                         let name = (json!["name"] as? String)
                         
                         var tempData = [String:Any]() // creates a temporary array for the item info
@@ -130,40 +160,44 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
                         print(tempData)
                         GlobalData.items.append(tempData)
                         
-                
-                
-                }catch {
-                    print("Error with Json: \(error)")
-                }
-                
+                        
+                        
+                    }catch {
+                        print("Error with Json: \(error)")
+                    }
+                    
                 } else {
                     print("NO INTERNET CONNECTION")
                 }
             }
             task.resume()
             
-        
-            }
+            
         }
+    }
+    
+    self.performSegueWithIdentifier("goBackToMainPage", sender: nil)
+    
+    
+    
+    // print("scanned: \(code.symbology), barcode: \(code.data)")
+    
+}
 
-            self.performSegueWithIdentifier("goBackToMainPage", sender: nil)
-        
+func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
+    // picker?.startScanning();
+}
 
-        
-           // print("scanned: \(code.symbology), barcode: \(code.data)")
-        
-    }
-    
-    func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
-       // picker?.startScanning();
-    }
-    
-    func overlayController(overlayController: SBSOverlayController, didCancelWithStatus status: [NSObject : AnyObject]?) {
-        // called when user cancles barcode scan process
-    }
-    
-    func doubleTapped(){
-        performSegueWithIdentifier("goBackToMainPage", sender: nil)
-    }
-    
+func overlayController(overlayController: SBSOverlayController, didCancelWithStatus status: [NSObject : AnyObject]?) {
+    // called when user cancles barcode scan process
+}
+
+func doubleTapped(){
+    performSegueWithIdentifier("goBackToMainPage", sender: nil)
+}
+
+}
+
+enum AppError : ErrorType {
+    case InvalidResource(String, String)
 }
