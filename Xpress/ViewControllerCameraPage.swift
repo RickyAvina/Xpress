@@ -145,18 +145,9 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
         
             }
         }
-        
-        dispatch_async(dispatch_get_main_queue()) {
-        let myAlert = UIAlertView()
-        myAlert.title = "Successfully Scanned"
-        myAlert.message = code.data
-        myAlert.addButtonWithTitle("Ok")
-        myAlert.delegate = self
-        myAlert.show()
-        
-        
+
             self.performSegueWithIdentifier("goBackToMainPage", sender: nil)
-        }
+        
 
         
            // print("scanned: \(code.symbology), barcode: \(code.data)")

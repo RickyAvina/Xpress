@@ -83,7 +83,7 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
     @IBAction func checkout(sender: UIButton) {
         
         if (totalPrice>0){
-            if (ViewControllerListPage.checkOutReady == true ){
+            if (ViewControllerListPage.checkOutReady == true || GlobalData.sharedInstance.app?.currentUser.email != "guest@guest.com"){
                 if (PKPassLibrary.isPassLibraryAvailable()){
                 if (PKPaymentAuthorizationViewController.canMakePaymentsUsingNetworks(SupportedPaymentNetworks) == false){
                     // credit card not added

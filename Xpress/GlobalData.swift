@@ -127,12 +127,13 @@ class GlobalData {
         }
     }
     
-    func logoutCurrentUser(){
+    func logoutCurrentUser(onSuccess: ()->()){
         GlobalData.sharedInstance.app?.currentUser.logoutInBackgroundWithCompletion{ (responseType: ResponseType, error: NSError!) -> Void in
             if (error == nil) {
                 // user logged out successfully
                  print("Did logout")
                 self.loginUser("guest@guest.com", password: "guest", onSuccess: {
+                   
                 })
             } else {
                 // login failed

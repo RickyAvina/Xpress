@@ -19,26 +19,14 @@ class ViewControllerLoginPage: UIViewController {
         
     GlobalData.sharedInstance.loginUser(emailTextField.text!, password: passwordTextField.text!, onSuccess: {[weak self] in
            // print("IsAuthenticated login screen: \((GlobalData.sharedInstance.app?.currentUser.isAuthenticated()))")
-          })
+        
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("main")
+        
+            self!.presentViewController(vc, animated: true, completion: nil)
+        })
     }
     
-   /* override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        
-        
-       
-        if ((GlobalData.sharedInstance.app?.user().isAuthenticated())! == true){
-            if (identifier == "loginToMain"){
-                return true
-            }
-        }
-        
-        if (identifier == "backToMain"){
-            return true
-        }
-        
-        return false
-           // return (GlobalData.sharedInstance.app?.user().isAuthenticated())!
-    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()

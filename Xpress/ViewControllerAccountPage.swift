@@ -22,7 +22,12 @@ class ViewControllerAccountPage : UIViewController {
     }
     
     @IBAction func logout(sender: UIButton) {
-        GlobalData.sharedInstance.logoutCurrentUser()
+        GlobalData.sharedInstance.logoutCurrentUser({
+            let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("login")
+            
+            self.presentViewController(vc, animated: true, completion: nil)
+        })
     }
     
 }
