@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="sql-6m-YJN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ujl-ML-8nf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="149" id="ai0-Dz-zQg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaG-VN-4oA">
@@ -363,6 +363,75 @@
             </objects>
             <point key="canvasLocation" x="-1859" y="646"/>
         </scene>
+        <!--View Controller Receipt Page-->
+        <scene sceneID="YkS-gF-U9u">
+            <objects>
+                <viewController storyboardIdentifier="receipt" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3AX-th-nab" customClass="ViewControllerReceiptPage" customModule="Xpress" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b30-pj-sw9"/>
+                        <viewControllerLayoutGuide type="bottom" id="QS4-Ap-Htb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ndK-Ib-Tqh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase Successful!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UKF-j2-Ybu">
+                                <rect key="frame" x="20" y="20" width="560" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="em1-wr-C0v"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction Identifier" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pC9-MG-KxG">
+                                <rect key="frame" x="20" y="116" width="560" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="FyD-np-BBA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9wQ-nK-K9n">
+                                <rect key="frame" x="20" y="156" width="560" height="389"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuT-Pa-q13">
+                                <rect key="frame" x="20" y="550" width="560" height="30"/>
+                                <state key="normal" title="Okay"/>
+                                <connections>
+                                    <segue destination="sql-6m-YJN" kind="show" id="Pdi-73-UYl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UKF-j2-Ybu" firstAttribute="leading" secondItem="ndK-Ib-Tqh" secondAttribute="leadingMargin" id="9pr-qM-tg5"/>
+                            <constraint firstItem="UKF-j2-Ybu" firstAttribute="trailing" secondItem="ndK-Ib-Tqh" secondAttribute="trailingMargin" id="AWN-Mj-G5t"/>
+                            <constraint firstAttribute="bottom" secondItem="iuT-Pa-q13" secondAttribute="bottom" constant="20" symbolic="YES" id="FwV-j1-x6l"/>
+                            <constraint firstItem="9wQ-nK-K9n" firstAttribute="leading" secondItem="iuT-Pa-q13" secondAttribute="leading" id="IsJ-ZT-ghd"/>
+                            <constraint firstItem="pC9-MG-KxG" firstAttribute="trailing" secondItem="9wQ-nK-K9n" secondAttribute="trailing" id="PRR-H7-SLU"/>
+                            <constraint firstItem="9wQ-nK-K9n" firstAttribute="trailing" secondItem="iuT-Pa-q13" secondAttribute="trailing" id="fWy-5J-ESQ"/>
+                            <constraint firstItem="pC9-MG-KxG" firstAttribute="leading" secondItem="9wQ-nK-K9n" secondAttribute="leading" id="fsv-ZJ-jhE"/>
+                            <constraint firstItem="9wQ-nK-K9n" firstAttribute="top" secondItem="UKF-j2-Ybu" secondAttribute="bottom" constant="48" id="hhW-ra-oLL"/>
+                            <constraint firstItem="pC9-MG-KxG" firstAttribute="top" secondItem="UKF-j2-Ybu" secondAttribute="bottom" constant="8" symbolic="YES" id="jWQ-vG-qfR"/>
+                            <constraint firstItem="iuT-Pa-q13" firstAttribute="top" secondItem="9wQ-nK-K9n" secondAttribute="bottom" constant="5" id="kOa-Ur-USQ"/>
+                            <constraint firstItem="UKF-j2-Ybu" firstAttribute="top" secondItem="b30-pj-sw9" secondAttribute="bottom" id="lP2-bG-pRw"/>
+                            <constraint firstItem="UKF-j2-Ybu" firstAttribute="trailing" secondItem="pC9-MG-KxG" secondAttribute="trailing" id="qVV-im-cGv"/>
+                            <constraint firstItem="UKF-j2-Ybu" firstAttribute="leading" secondItem="pC9-MG-KxG" secondAttribute="leading" id="xFO-YI-JIZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="items" destination="9wQ-nK-K9n" id="ecD-XQ-TuC"/>
+                        <outlet property="purchaseLabel" destination="UKF-j2-Ybu" id="BhY-2F-PNy"/>
+                        <outlet property="transactionIdentifierLabel" destination="pC9-MG-KxG" id="Qz9-Xk-G8s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bH7-U6-EjJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1859" y="1389"/>
+        </scene>
         <!--View Controller Main Page-->
         <scene sceneID="V6U-4K-L8q">
             <objects>
@@ -471,7 +540,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGX-jC-40v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1175" y="610"/>
+            <point key="canvasLocation" x="-1155" y="610"/>
         </scene>
         <!--View Controller Register Page-->
         <scene sceneID="LOk-mJ-rgj">
@@ -654,8 +723,8 @@
         <image name="list.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="M3i-0c-hbL"/>
-        <segue reference="V62-TR-qVh"/>
+        <segue reference="Pdi-73-UYl"/>
         <segue reference="wOc-7q-v53"/>
+        <segue reference="M3i-0c-hbL"/>
     </inferredMetricsTieBreakers>
 </document>

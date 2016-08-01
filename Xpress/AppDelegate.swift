@@ -21,8 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         UIApplication.sharedApplication().statusBarHidden = true
         GlobalData.sharedInstance.initialize()
         
-        //print("Is Authenticated: \(GlobalData.sharedInstance.app?.currentUser)" )
-        return true
+        if (GlobalData.isFirstLaunch || GlobalData.sharedInstance.app?.currentUser == nil){
+            print("Condition Met")
+            GlobalData.sharedInstance.loginUser("guest@guest.com", password: "guest", onSuccess: {
+               
+            })
+        }
+
+        
+       return true
     }
     
     func applicationWillResignActive(application: UIApplication) {

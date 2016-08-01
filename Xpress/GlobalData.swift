@@ -12,6 +12,8 @@ class GlobalData {
     
     static let sharedInstance = GlobalData()
     
+    static var g : Bool?
+    
     static var items = [[String:Any]]()   // array of dictionaries for item info
     static let isFirstLaunch = NSUserDefaults.isFirstLaunch()
     

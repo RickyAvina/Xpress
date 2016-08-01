@@ -68,6 +68,7 @@
 		94EB68661D4A812500FEC971 /* Item.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94EB68651D4A812500FEC971 /* Item.xib */; };
 		94F7513A1D41BB3300413DDA /* +UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F751391D41BB3300413DDA /* +UIView.swift */; };
 		94F7513C1D41BFE100413DDA /* +NSUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */; };
+		94FB04BD1D4EF44A008405C5 /* ViewControllerReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FB04BC1D4EF44A008405C5 /* ViewControllerReceipt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +171,7 @@
 		94EB68651D4A812500FEC971 /* Item.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Item.xib; sourceTree = "<group>"; };
 		94F751391D41BB3300413DDA /* +UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+UIView.swift"; sourceTree = "<group>"; };
 		94F7513B1D41BFE100413DDA /* +NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "+NSUserDefaults.swift"; sourceTree = "<group>"; };
+		94FB04BC1D4EF44A008405C5 /* ViewControllerReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerReceipt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 				943D06801D3B25A800730F39 /* AppDelegate.swift */,
 				943D06821D3B25A800730F39 /* ViewController.swift */,
 				943D06841D3B25A800730F39 /* Main.storyboard */,
+				94FB04BC1D4EF44A008405C5 /* ViewControllerReceipt.swift */,
 				94DD47A51D4BD52500DC804F /* ViewControllerAccountPage.swift */,
 				944004131D4012EF0000098F /* Item.swift */,
 				94EB68651D4A812500FEC971 /* Item.xib */,
@@ -509,6 +512,7 @@
 				944004141D4012EF0000098F /* Item.swift in Sources */,
 				944004001D3D7D050000098F /* ViewControllerRegisterPage.swift in Sources */,
 				943D06831D3B25A800730F39 /* ViewController.swift in Sources */,
+				94FB04BD1D4EF44A008405C5 /* ViewControllerReceipt.swift in Sources */,
 				943D06891D3B25A800730F39 /* Xpress.xcdatamodeld in Sources */,
 				944004041D3D90D70000098F /* ViewControllerMainPage.swift in Sources */,
 				944004101D400FDC0000098F /* ViewControllerListPage.swift in Sources */,

@@ -20,6 +20,9 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
     var lib: PKPassLibrary?
     static var checkOutReady : Bool = false
     
+    var paymentToken : PKPaymentToken!
+    static var transacIdentifier : String!
+    
     let SupportedPaymentNetworks = [PKPaymentNetworkVisa, PKPaymentNetworkMasterCard, PKPaymentNetworkAmex] // supported payment types
     let ApplePayXpressMerchantID = "merchant.com.rickyavina.Xpress"
     
@@ -27,12 +30,19 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
     func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: ((PKPaymentAuthorizationStatus) -> Void)){
         completion(PKPaymentAuthorizationStatus.Success)
         
+        paymentToken = payment.token
         // send info to backend to procces
+        ViewControllerListPage.transacIdentifier = paymentToken.transactionIdentifier
     }
     
     // called when payment completes
     func paymentAuthorizationViewControllerDidFinish(controller: PKPaymentAuthorizationViewController) {
         controller.dismissViewControllerAnimated(true, completion: nil)
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("receipt")
+        self.presentViewController(vc, animated: true, completion: {
+            
+        })
     }
     
     override func viewDidLoad() {
@@ -122,6 +132,7 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
                     applePayController.delegate = self
                     
                     self.presentViewController(applePayController, animated: true, completion: nil)
+
                 }
                 }
             } else {
