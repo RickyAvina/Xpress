@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         UIApplication.sharedApplication().statusBarHidden = true
         GlobalData.sharedInstance.initialize()
         
-        print("Is Authenticated: \(GlobalData.sharedInstance.app?.currentUser)" )
+        //print("Is Authenticated: \(GlobalData.sharedInstance.app?.currentUser)" )
         return true
     }
     

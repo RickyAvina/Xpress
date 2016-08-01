@@ -10,12 +10,19 @@ import Foundation
 
 class ViewControllerAccountPage : UIViewController {
     
+    @IBOutlet var helloLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        helloLabel.text = "Hello \((GlobalData.sharedInstance.app?.currentUser.firstName)!)!"
     }
     
     override func didReceiveMemoryWarning() {
         
     }
+    
+    @IBAction func logout(sender: UIButton) {
+        GlobalData.sharedInstance.logoutCurrentUser()
+    }
+    
 }

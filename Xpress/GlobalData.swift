@@ -24,6 +24,7 @@ class GlobalData {
         let builtApplicationAPIKey = "blt2543bf0c950e6d5d"
         app = Built.applicationWithAPIKey(builtApplicationAPIKey)
      //   builtUser = app?.user()
+        
     }
     
     func verifyUser(email email:String) -> Bool{
@@ -106,16 +107,18 @@ class GlobalData {
     
     
     func loginUser(email: String, password : String, onSuccess: ()->()){
-       if let theApp = app {
+        if let theApp = app {
             let userObject:BuiltUser = theApp.user()
             userObject.loginInBackgroundWithEmail(email, andPassword: password) {
                 (responseType: ResponseType, error: NSError!) -> Void in
                 
                 if (error == nil){
                     userObject.setAsCurrentUser()
-                   /* print("User: \(GlobalData.sharedInstance.app?.currentUser)")
-                    print("Authtoken: \(userObject.authtoken)")
-                    print("IsAuthenticated: \(GlobalData.sharedInstance.app?.currentUser.isAuthenticated())")*/
+                    /* print("User: \(GlobalData.sharedInstance.app?.currentUser)")
+                     print("Authtoken: \(userObject.authtoken)")
+                     print("IsAuthenticated: \(GlobalData.sharedInstance.app?.currentUser.isAuthenticated())")*/
+                    print("^(%%%%")
+                    print(GlobalData.sharedInstance.app?.currentUser.email)
                     onSuccess()
                 } else {
                     print("Error logging in: \(error)")
@@ -123,5 +126,20 @@ class GlobalData {
             }
         }
     }
+    
+    func logoutCurrentUser(){
+        GlobalData.sharedInstance.app?.currentUser.logoutInBackgroundWithCompletion{ (responseType: ResponseType, error: NSError!) -> Void in
+            if (error == nil) {
+                // user logged out successfully
+                 print("Did logout")
+                self.loginUser("guest@guest.com", password: "guest", onSuccess: {
+                })
+            } else {
+                // login failed
+                print("ERR: \(error.userInfo))")
+            }
+        }
+    }
+
     
 }

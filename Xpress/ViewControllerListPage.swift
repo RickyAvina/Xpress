@@ -58,7 +58,10 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
         var total : Double = 0
         
         for i in 0..<GlobalData.items.count{
+            print("price: \(GlobalData.items[i]["price"] as! Double)")
             total += GlobalData.items[i]["price"] as! Double
+            print("total: \(total)")
+
         }
         
         totalPrice = total
@@ -66,8 +69,8 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
         let formatter = NSNumberFormatter()
         formatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
         formatter.locale = NSLocale(localeIdentifier: "en_US")
-        let numberFromField = (NSString(string: totalText).doubleValue)
-        totalText = formatter.stringFromNumber(numberFromField)!
+        //let numberFromField = (NSString(string: totalText).doubleValue)
+        totalText = formatter.stringFromNumber(total)!
         
         totalAmountLabel.text = totalText
     }
@@ -80,7 +83,7 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
     @IBAction func checkout(sender: UIButton) {
         
         if (totalPrice>0){
-            if (ViewControllerListPage.checkOutReady == true || (GlobalData.sharedInstance.app?.currentUser.isAuthenticated()) == true){
+            if (ViewControllerListPage.checkOutReady == true ){
                 if (PKPassLibrary.isPassLibraryAvailable()){
                 if (PKPaymentAuthorizationViewController.canMakePaymentsUsingNetworks(SupportedPaymentNetworks) == false){
                     // credit card not added
@@ -89,7 +92,6 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
                         self.presentViewController(alert, animated: true){
                             self.lib!.openPaymentSetup()
                         }
-                        
                         })
                     
                    // print("Payment not authorized")
@@ -177,13 +179,10 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
                 cell?.name.text = GlobalData.items[indexPath.row]["name"] as? String
             }
             if (GlobalData.items[indexPath.row]["price"] != nil){
-                cell?.price.text = "$0.75"
+                cell?.price.text = "$\(String((GlobalData.items[indexPath.row]["price"])!))"
             }
             if (GlobalData.items[indexPath.row]["upcCode"] != nil){
                 cell?.upcCode.text = GlobalData.items[indexPath.row]["upcCode"] as? String
-            }
-            if (GlobalData.items[indexPath.row]["desc"] != nil){
-                cell?.upcCode.text = GlobalData.items[indexPath.row]["desc"] as? String
             }
         }
     

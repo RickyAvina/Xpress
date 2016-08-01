@@ -20,30 +20,39 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XPress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2f-eI-19p">
                                 <rect key="frame" x="229" y="28" width="142" height="54"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="142" id="RQX-O9-nme"/>
-                                    <constraint firstAttribute="height" constant="54" id="WiD-vQ-IoI"/>
+                                    <constraint firstAttribute="width" constant="142" id="Obz-CC-8zY"/>
+                                    <constraint firstAttribute="height" constant="54" id="ydg-Xt-wrY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="38"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The modern solution to shopping" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1F-fF-8Ei">
                                 <rect key="frame" x="207" y="147" width="187" height="62"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="187" id="WYG-dR-URX"/>
+                                    <constraint firstAttribute="width" constant="187" id="6Rn-dr-Is9"/>
+                                    <constraint firstAttribute="height" constant="62" id="UZd-fE-UQd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cart.png" translatesAutoresizingMaskIntoConstraints="NO" id="4yg-Re-jXV">
+                                <rect key="frame" x="231" y="236" width="138" height="109"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="rSC-6n-Bv9"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="q1F-fF-8Ei" firstAttribute="top" secondItem="u2f-eI-19p" secondAttribute="bottom" constant="65" id="9d0-pE-Q77"/>
-                            <constraint firstItem="u2f-eI-19p" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="P6m-Z9-Yi9"/>
-                            <constraint firstItem="u2f-eI-19p" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="8" symbolic="YES" id="S6P-4s-j1A"/>
-                            <constraint firstItem="u2f-eI-19p" firstAttribute="centerX" secondItem="q1F-fF-8Ei" secondAttribute="centerX" id="SSg-q9-rRV"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="q1F-fF-8Ei" secondAttribute="bottom" constant="391" id="ylD-2p-Y5d"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="4yg-Re-jXV" secondAttribute="bottom" constant="255" id="16V-LT-irw"/>
+                            <constraint firstItem="q1F-fF-8Ei" firstAttribute="centerX" secondItem="4yg-Re-jXV" secondAttribute="centerX" id="2jA-B7-RiW"/>
+                            <constraint firstItem="4yg-Re-jXV" firstAttribute="top" secondItem="q1F-fF-8Ei" secondAttribute="bottom" constant="27" id="CVz-5r-7e3"/>
+                            <constraint firstItem="q1F-fF-8Ei" firstAttribute="top" secondItem="u2f-eI-19p" secondAttribute="bottom" constant="65" id="U7t-DS-CKR"/>
+                            <constraint firstItem="u2f-eI-19p" firstAttribute="centerX" secondItem="q1F-fF-8Ei" secondAttribute="centerX" id="aUN-zf-BTv"/>
+                            <constraint firstItem="u2f-eI-19p" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bna-rW-Kmx"/>
+                            <constraint firstItem="u2f-eI-19p" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="8" symbolic="YES" id="fGX-OM-90s"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -52,4 +61,7 @@
             <point key="canvasLocation" x="203" y="381"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cart.png" width="58" height="58"/>
+    </resources>
 </document>
