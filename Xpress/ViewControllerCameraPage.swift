@@ -138,14 +138,14 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
             
             dispatch_async(dispatch_get_main_queue()) {
                 
-                //   let requestURL : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\((code.data)!)?apikey=f603e960da29067c4573079073426751")!
+                   let requestURLOutpan : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\((code.data)!)?apikey=f603e960da29067c4573079073426751")!
                 
                 let requestURLWalmart : NSURL = NSURL(string: "https://api.walmartlabs.com/v1/items?apiKey=smcsbxee4wswerednrtk4mwx&upc=\((code.data)!)")!
                 
                 let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURLWalmart)
+                let otherURLRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURLOutpan)
                 
                 let session = NSURLSession.sharedSession()
-                
                 
                 let task = session.dataTaskWithRequest(urlRequest) {
                     (data, response, error) -> Void in
@@ -157,8 +157,9 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
                         do{
                             
                             let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String : [[String:AnyObject]]]
-                            
+                        
                             let dictArray = (json!["items"]!) as [[String: AnyObject]]
+
                             let productData = dictArray[0] as [String : AnyObject]
                             let productName = (productData["name"])!
                             let productPrice = (productData["salePrice"])!
@@ -219,11 +220,78 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
                         }
                         
                     } else {
-                        print("NO INTERNET CONNECTION")
+                        let requestURLOutpan : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\((code.data)!)?apikey=f603e960da29067c4573079073426751")!
+                        
+                       // let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURLWalmart)
+                        let otherURLRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURLOutpan)
+                        
+                        let session = NSURLSession.sharedSession()
+                        
+                        let task = session.dataTaskWithRequest(otherURLRequest) {
+                            (data, response, error) -> Void in
+                            
+                            let httpResponse = response as! NSHTTPURLResponse
+                            let statusCode = httpResponse.statusCode
+                            
+                            if (statusCode == 200){
+                                do{
+                                    
+                                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions()) as? [String : AnyObject]
+                                    
+                                    var productName = (json!["name"])! as? String
+                                   
+                                    if (productName == nil){
+                                        productName = "Product Name is not avaliable"
+                                    }
+                                    
+                                    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+                                        
+                                        var tempData = [String:Any]() // creates a temporary array for the item info
+                                        
+                                        var productImage : UIImage?
+                                        
+    
+                                        productImage = UIImage(named: "placeholder.png")
+                                        
+                                        tempData["itemImage"] = productImage
+                                        
+                                        
+                                        print("Product Name: \(productName)")
+                                        print("Product Price: $0.00")
+                                        // let name = items!["name"]
+                                        //print(name)
+                                        
+                                        // let theItems = json!["items"] as? [String: AnyObject]
+                                        
+                                        
+                                        //    print (theItems!)
+                                        
+                                        
+                                        //let name = (json!["name"] as? String)
+                                        
+                                        
+                                        tempData["name"] = productName
+                                        tempData["price"] = 0.00
+                                        tempData["upcCode"] = code.data
+                                        tempData["desc"] = "No description avaliable"
+                                        
+                                        // print(tempData)
+                                        GlobalData.items.append(tempData)
+                                        
+                                    })
+                                    
+                                }catch {
+                                    print("Error with Json: \(error)")
+                                }
+                                
+                            } else {
+                                print ("NO INTERNET")
+                            }
+                        }
+                        task.resume()
                     }
                 }
                 task.resume()
-                
                 
             }
         }
@@ -236,18 +304,25 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
         
     }
     
+    func og(){
+        
+        
+        
+    }
+
+
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
         // picker?.startScanning();
     }
-    
+
     func overlayController(overlayController: SBSOverlayController, didCancelWithStatus status: [NSObject : AnyObject]?) {
         // called when user cancles barcode scan process
     }
-    
+
     func doubleTapped(){
         performSegueWithIdentifier("goBackToMainPage", sender: nil)
     }
-    
+
 }
 
 enum AppError : ErrorType {
