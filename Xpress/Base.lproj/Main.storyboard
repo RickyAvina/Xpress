@@ -385,6 +385,10 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cart.png" translatesAutoresizingMaskIntoConstraints="NO" id="l5L-je-2aK">
                                 <rect key="frame" x="20" y="0.0" width="560" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="5se-1M-c7k"/>
+                                    <constraint firstAttribute="width" constant="560" id="Lus-tX-2pv"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -778,8 +782,8 @@
         <image name="list.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Pdi-73-UYl"/>
-        <segue reference="M3i-0c-hbL"/>
         <segue reference="5f0-1J-IhU"/>
+        <segue reference="6ZA-NA-5tE"/>
+        <segue reference="M3i-0c-hbL"/>
     </inferredMetricsTieBreakers>
 </document>

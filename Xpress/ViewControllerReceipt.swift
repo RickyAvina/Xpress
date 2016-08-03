@@ -70,6 +70,9 @@ class ViewControllerReceiptPage : UIViewController, UITableViewDelegate, UITable
             if (GlobalData.items[indexPath.row]["price"] != nil){
                 cell?.price.text = "$\(String((GlobalData.items[indexPath.row]["price"])!))"
             }
+            if (GlobalData.items[indexPath.row]["itemImage"] != nil){
+                cell?.itemImage.image = GlobalData.items[indexPath.row]["itemImage"] as? UIImage
+            }
             if (GlobalData.items[indexPath.row]["upcCode"] != nil){
                 cell?.upcCode.text = GlobalData.items[indexPath.row]["upcCode"] as? String
             }
@@ -85,7 +88,7 @@ class ViewControllerReceiptPage : UIViewController, UITableViewDelegate, UITable
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        let HeightOfCellCreatedInXIBFILE : CGFloat = 200
+        let HeightOfCellCreatedInXIBFILE : CGFloat = 500
         
         return HeightOfCellCreatedInXIBFILE
     }

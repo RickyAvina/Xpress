@@ -125,7 +125,7 @@ class ViewControllerListPage: UIViewController, UITableViewDelegate, UITableView
                         .decimalNumberByRoundingAccordingToBehavior(behavior)
                    
                     request.paymentSummaryItems = [
-                        PKPaymentSummaryItem(label: "Shopping Cart", amount: calcDN)
+                        PKPaymentSummaryItem(label: "Xpress Shopping Cart", amount: 0.01)
                     ]
                     
                     let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
