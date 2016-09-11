@@ -138,12 +138,12 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
             
             dispatch_async(dispatch_get_main_queue()) {
                 
-                   let requestURLOutpan : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\((code.data)!)?apikey=f603e960da29067c4573079073426751")!
+                let requestURLOutpan : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\((code.data)!)?apikey=f603e960da29067c4573079073426751")!
                 
                 let requestURLWalmart : NSURL = NSURL(string: "https://api.walmartlabs.com/v1/items?apiKey=smcsbxee4wswerednrtk4mwx&upc=\((code.data)!)")!
                 
                 let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURLWalmart)
-                let otherURLRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURLOutpan)
+                //let otherURLRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURLOutpan)
                 
                 let session = NSURLSession.sharedSession()
                 
@@ -173,15 +173,12 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
                                 productImageString  = str.insert("s", ind: 4)
                             }
                             
-                          //  print(productImageString)
-                         
                             dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
                                 
                                 var tempData = [String:Any]() // creates a temporary array for the item info
                                 
                                 var productImage : UIImage?
-                                
-                               // print ("PRODUCT IMAGE STRING: \(productImageString)")
+
                                 if (productImageString?.characters.count>0){
                                     productImage =  UIImage(data: NSData(contentsOfURL: NSURL(string:productImageString!)!)!)! as UIImage
                                 } else {
@@ -193,17 +190,6 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
                                 
                                 print("Product Name: \(productName)")
                                 print("Product Price: \(productPrice)")
-                                // let name = items!["name"]
-                                //print(name)
-                                
-                                // let theItems = json!["items"] as? [String: AnyObject]
-                                
-                                
-                                //    print (theItems!)
-                                
-                                
-                                //let name = (json!["name"] as? String)
-                                
                                 
                                 tempData["name"] = productName
                                 tempData["price"] = productPrice
@@ -222,7 +208,6 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
                     } else {
                         let requestURLOutpan : NSURL = NSURL(string: "https://api.outpan.com/v2/products/\((code.data)!)?apikey=f603e960da29067c4573079073426751")!
                         
-                       // let urlRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURLWalmart)
                         let otherURLRequest: NSMutableURLRequest = NSMutableURLRequest(URL: requestURLOutpan)
                         
                         let session = NSURLSession.sharedSession()
@@ -249,7 +234,7 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
                                         var tempData = [String:Any]() // creates a temporary array for the item info
                                         
                                         var productImage : UIImage?
-                                        
+                                    
     
                                         productImage = UIImage(named: "placeholder.png")
                                         
@@ -257,21 +242,10 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
                                         
                                         
                                         print("Product Name: \(productName)")
-                                        print("Product Price: $0.00")
-                                        // let name = items!["name"]
-                                        //print(name)
-                                        
-                                        // let theItems = json!["items"] as? [String: AnyObject]
-                                        
-                                        
-                                        //    print (theItems!)
-                                        
-                                        
-                                        //let name = (json!["name"] as? String)
-                                        
+                                        print("Product Price: $0.01")
                                         
                                         tempData["name"] = productName
-                                        tempData["price"] = 0.00
+                                        tempData["price"] = 0.01
                                         tempData["upcCode"] = code.data
                                         tempData["desc"] = "No description avaliable"
                                         
@@ -298,10 +272,6 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
         
         self.performSegueWithIdentifier("goBackToMainPage", sender: nil)
         
-        
-        
-        // print("scanned: \(code.symbology), barcode: \(code.data)")
-        
     }
     
     func og(){
@@ -312,11 +282,10 @@ class ViewControllerCameraPage: ViewController, SBSScanDelegate, SBSOverlayContr
 
 
     func alertView(alertView: UIAlertView, didDismissWithButtonIndex buttonIndex: Int) {
-        // picker?.startScanning();
     }
 
     func overlayController(overlayController: SBSOverlayController, didCancelWithStatus status: [NSObject : AnyObject]?) {
-        // called when user cancles barcode scan process
+        // called when user cancels barcode scan process
     }
 
     func doubleTapped(){

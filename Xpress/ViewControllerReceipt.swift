@@ -8,18 +8,35 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
-class ViewControllerReceiptPage : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewControllerReceiptPage : UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     @IBOutlet var transactionIdentifierLabel: UILabel!
     @IBOutlet var purchaseLabel: UILabel!
     
     @IBOutlet var items: UITableView!
     
+    let proximityUUID : NSUUID = NSUUID(UUIDString: "6665542b-41a1-5e00-931c-6a82db9b78c1")!
+    
+    let locationManager = CLLocationManager()
+    
+    let region = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "6665542b-41a1-5e00-931c-6a82db9b78c1")!, identifier: "Xpress")
+    
+    //let region = CLBeaconRegion(proximityUUID: NSUUID(UIIDString: "69dd1502-4c50-5475-9deb-cf3fe827911d"), identifier: "Xpress")
+    
+    //let region : CLBeaconRegion = CLBeaconRegion(proximityUUID: "69dd1502-4c50-5475-9deb-cf3fe827911d", identifier: "Xpress")
+    
+    
     override func viewDidLoad() {
         transactionIdentifierLabel.text = "Transaction Identifier\n\(ViewControllerListPage.transacIdentifier)"
         super.viewDidLoad()
     
+        locationManager.delegate = self
+        if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse){
+            locationManager.requestWhenInUseAuthorization()
+        }
+
         items.delegate = self
         items.dataSource = self
         
@@ -43,9 +60,30 @@ class ViewControllerReceiptPage : UIViewController, UITableViewDelegate, UITable
         
         purchaseLabel.text = "Purchase Successful for \(totalText)"
         
+        locationManager.startRangingBeaconsInRegion(region)
+        
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    // proximity enums - 0: doesn't know , 1-3 closer to far
+    // rssi: closest to 0 is closest. Unknown is 0
+    
+    
+    // beacons come in range
+    func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion) {
+        let knownReacons : [CLBeacon] = beacons.filter{ $0.proximity != CLProximity.Unknown }
+        if (knownReacons.count > 0){
+            let closestBeacon = knownReacons[0] as CLBeacon
+            print("Closest beacon: \(closestBeacon)")
+            
+            if (closestBeacon.proximity == CLProximity.Near) {
+            }
+        }
+        
+        
+    }
+    
+    
+        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count : Int = 0
         
         if (GlobalData.items.count != 0 && tableView.isEqual(items)){

@@ -79,7 +79,7 @@
                 <outlet property="price" destination="Uj1-Bb-KLV" id="LXA-ct-Lah"/>
                 <outlet property="upcCode" destination="lV6-px-qv7" id="Zed-hS-t5g"/>
             </connections>
-            <point key="canvasLocation" x="137" y="304.5"/>
+            <point key="canvasLocation" x="23" y="293.5"/>
         </tableViewCell>
     </objects>
 </document>
